@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>World Wide Web: el primer sitio web del CERN, rediseñado</title>
+<meta name="description" content="Proyecto educativo del COVAO (Costa Rica), no oficial: rediseño del primer sitio web del mundo, publicado por el CERN en info.cern.ch. El proyecto WorldWideWeb (W3) y su red de enlaces, con escenas 3D.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Yeiner Vindas Hernández · COVAO Costa Rica">
+<meta name="application-name" content="World Wide Web · rediseño">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="dark"><meta name="theme-color" content="#07090d">
+<link rel="canonical" href="https://w3.covao.dev/">
+<meta property="og:image" content="https://w3.covao.dev/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="World Wide Web: rediseño del primer sitio web del CERN, proyecto del COVAO">
+<meta property="og:url" content="https://w3.covao.dev/"><meta property="og:type" content="website"><meta property="og:site_name" content="World Wide Web · rediseño">
+<meta property="og:title" content="World Wide Web: el primer sitio web del CERN, rediseñado"><meta property="og:description" content="El proyecto W3 y su red de documentos, como los dejó el CERN en info.cern.ch.">
+<meta property="og:locale" content="es_CR">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://w3.covao.dev/og-image.png"><meta name="twitter:title" content="World Wide Web: el primer sitio web del CERN, rediseñado"><meta name="twitter:description" content="El proyecto W3 y su red de documentos, con escenas 3D interactivas.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2010%2010'%3E%3Ccircle%20cx='5'%20cy='5'%20r='4'%20fill='%23f08a24'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"World Wide Web · rediseño","inLanguage":["es","en","pt","fr","de"]},{"@type":"WebPage","url":"https://w3.covao.dev/","image":"https://w3.covao.dev/og-image.png","name":"World Wide Web: el primer sitio web del CERN, rediseñado","description":"Proyecto educativo del COVAO (Costa Rica), no oficial: rediseño del primer sitio web del mundo, publicado por el CERN en info.cern.ch. El proyecto WorldWideWeb (W3) y su red de enlaces, con escenas 3D.","inLanguage":"es","creator":{"@type":"Person","name":"Yeiner Vindas Hernández","affiliation":{"@type":"EducationalOrganization","name":"COVAO (Colegio Vocacional de Artes y Oficios)","address":{"@type":"PostalAddress","addressCountry":"CR"}}},"publisher":{"@type":"EducationalOrganization","name":"COVAO Costa Rica"},"disambiguatingDescription":"Proyecto educativo no oficial. No es un sitio del CERN.","isBasedOn":"http://info.cern.ch/hypertext/WWW/TheProject.html","about":[{"@type":"Thing","name":"World Wide Web","sameAs":"https://en.wikipedia.org/wiki/World_Wide_Web"},{"@type":"Organization","name":"CERN","url":"https://home.cern"},{"@type":"Person","name":"Tim Berners-Lee"}]}]}</script>
+<style>
+:root{--bg:#07090d;--fg:#e9edf2;--mut:#8c97a6;--blue:#6fb7e8;--org:#f08a24;--yel:#f2e12c;--grn:#38c94a;--line:rgba(255,255,255,.1);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--fg);font-family:Inter,"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+:root[data-theme="light"]{}
+#gl{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top,0px)) clamp(16px,4vw,48px) 14px;background:linear-gradient(var(--bg),rgba(7,9,13,0))}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2em;font-size:.95rem;color:var(--fg);text-decoration:none}
+.logo i{width:22px;height:22px;border:2px solid var(--blue);border-radius:50%;position:relative}
+.logo i:after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--org)}
+nav .lk{display:flex;gap:clamp(14px,2.4vw,32px)}
+nav .lk a{color:var(--mut);text-decoration:none;font-size:.8rem;letter-spacing:.04em;transition:color .2s}
+nav .lk a:hover{color:var(--fg)}
+#bar{position:fixed;left:0;top:0;height:2px;width:0;background:var(--blue);z-index:30}
+#hud{position:fixed;left:clamp(16px,4vw,48px);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:15;font:500 .7rem ui-monospace,Consolas,monospace;letter-spacing:.12em;color:var(--mut);text-transform:uppercase;pointer-events:none}
+#hud b{color:var(--fg);font-weight:600}
+.lbl{position:fixed;left:0;top:0;z-index:3;pointer-events:none;font:500 .68rem ui-monospace,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--fg);white-space:nowrap;padding:3px 8px;border-left:2px solid var(--blue);background:rgba(7,9,13,.55);opacity:0;transform:translate(8px,-50%)}
+section{position:relative;z-index:5;min-height:82vh;display:flex;align-items:center;padding:9vh clamp(16px,5vw,64px)}
+.col{width:min(500px,100%);padding:clamp(20px,3vw,34px);background:rgba(8,11,16,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px}
+.ey{font:600 .72rem ui-monospace,Consolas,monospace;letter-spacing:.16em;color:var(--org);text-transform:uppercase;margin-bottom:14px}
+h1,h2{font-weight:300;letter-spacing:-.02em;line-height:1.08}
+h1{font-size:clamp(2.1rem,5.2vw,3.7rem)}h2{font-size:clamp(1.7rem,3.6vw,2.5rem)}
+.col>p{margin-top:16px;color:#b9c3d0;line-height:1.65;font-size:clamp(.92rem,1.6vw,1rem)}
+.go{display:inline-block;margin-top:22px;padding:12px 22px;border:1px solid var(--blue);border-radius:999px;color:var(--fg);background:transparent;font:inherit;font-size:.85rem;text-decoration:none;cursor:pointer;transition:.2s}
+.go:hover{background:var(--blue);color:#06101a}
+.nds{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.nd{font:inherit;color:inherit;text-align:left;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:12px;cursor:pointer;transition:border-color .2s,background .2s;-webkit-tap-highlight-color:transparent}
+.nd:hover,.nd:focus-visible,.nd.open{border-color:var(--blue);background:rgba(111,183,232,.07);outline:none}
+.nd.open{grid-column:1/-1}
+.hd{display:flex;align-items:center;gap:10px}
+.at{width:28px;height:28px;position:relative;flex:none}
+.at:before{content:"";position:absolute;inset:11px;border-radius:50%;background:var(--org)}
+.at i{position:absolute;inset:0;border:1px solid rgba(111,183,232,.55);border-radius:50%;animation:sp 4s linear infinite}
+.at i:after{content:"";position:absolute;top:-3px;left:50%;margin-left:-3px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+@keyframes sp{to{transform:rotate(360deg)}}
+.hd b{display:block;font-weight:600;font-size:1.05rem;line-height:1.1}
+.hd span{display:block;font-size:.7rem;color:var(--mut);margin-top:3px;line-height:1.2}
+.nd p{max-height:0;overflow:hidden;opacity:0;font-size:.86rem;line-height:1.55;color:#b9c3d0;transition:max-height .35s,opacity .3s,margin .3s}
+.nd.open p{max-height:260px;opacity:1;margin-top:10px}
+.nd a{color:var(--blue)}
+@media(max-width:900px){section{align-items:flex-end;padding-bottom:6vh}.col{width:100%}nav .lk{display:none}}
+@media(max-width:420px){.nds{grid-template-columns:1fr}}
+footer{position:relative;z-index:5;padding:60px clamp(16px,5vw,64px) calc(60px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line);color:var(--mut);font-size:.85rem;line-height:1.8}
+footer a{color:var(--blue)}
+#gl{opacity:0}
+.lg{display:flex}.lg button{background:none;border:1px solid var(--line);color:var(--mut);font:600 .7rem ui-monospace,Consolas,monospace;padding:6px 10px;cursor:pointer}.lg button:first-child{border-radius:999px 0 0 999px}.lg button:last-child{border-radius:0 999px 999px 0;border-left:0}.lg button.on{color:#06101a;background:var(--blue);border-color:var(--blue)}
+section.hs{min-height:100vh;justify-content:center;text-align:center;align-items:center;padding:14vh clamp(16px,5vw,64px) 10vh;background:linear-gradient(var(--bg),var(--bg) 80%,rgba(7,9,13,0))}
+.hw{width:min(760px,100%);margin:0 auto}.hs h1{font-size:clamp(2.3rem,6.2vw,4.5rem)}.hs p{margin:18px auto 0;max-width:560px;color:#b9c3d0;line-height:1.65}
+.scue{margin-top:30px;font:500 .7rem ui-monospace,Consolas,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}.scue:after{content:"";display:block;width:1px;height:38px;margin:10px auto 0;background:linear-gradient(var(--blue),transparent);animation:dn 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes dn{50%{transform:scaleY(.35)}}
+.orb{width:min(210px,50vw);aspect-ratio:1;position:relative;margin:0 auto 26px;cursor:pointer;transform-style:preserve-3d;transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s;-webkit-tap-highlight-color:transparent}
+.orb b{position:absolute;inset:41%;border-radius:50%;background:var(--org);box-shadow:0 0 22px 4px rgba(240,138,36,.45);transition:box-shadow .3s,transform .3s}
+.orb i{position:absolute;inset:0;border:1px solid rgba(111,183,232,.6);border-radius:50%;animation:ob 7s linear infinite}
+.orb i:after{content:"";position:absolute;top:-4px;left:50%;margin-left:-4px;width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue)}
+.orb i:nth-of-type(2){animation-duration:9s;animation-direction:reverse}.orb i:nth-of-type(3){animation-duration:11s}
+@keyframes ob{from{transform:rotateZ(var(--a)) rotateX(68deg) rotateZ(0)}to{transform:rotateZ(var(--a)) rotateX(68deg) rotateZ(360deg)}}
+.orb:hover i,.orb.pop i{animation-duration:1.6s}.orb.pop b{transform:scale(1.6);box-shadow:0 0 60px 18px rgba(240,138,36,.7)}
+.at{width:34px;height:34px;cursor:pointer;transition:transform .25s}.at:before{inset:13px;transition:box-shadow .3s}
+.nd:hover .at,.at.pop{transform:scale(1.22)}.nd:hover .at i{animation-duration:1.4s}.at.pop:before{box-shadow:0 0 16px 6px var(--org)}
+.at i.o2{inset:-5px;animation-duration:7s;animation-direction:reverse;border-color:rgba(240,138,36,.5)}
+footer a{display:inline-block;margin:0 14px 6px 0}
+.lg button+button{border-left:0}.lg button{padding:6px 8px}
+.tl{margin-top:22px}.ty{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px}.ty button{font:600 .8rem ui-monospace,Consolas,monospace;background:none;border:1px solid var(--line);color:var(--mut);border-radius:999px;padding:7px 14px;cursor:pointer}.ty button.on,.ty button:hover{color:#06101a;background:var(--blue);border-color:var(--blue)}
+.td{margin-top:14px;min-height:8.5em;animation:fi .35s}.td b{font-weight:600;font-size:1.05rem}.td p{margin-top:8px;font-size:.9rem;line-height:1.6;color:#b9c3d0}.td a{color:var(--blue)}@keyframes fi{from{opacity:0;transform:translateY(6px)}}
+#up{position:fixed;right:clamp(16px,3vw,32px);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(8,11,16,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--fg);font-size:1.1rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,border-color .2s}#up.on{opacity:1;pointer-events:auto}#up:hover{border-color:var(--blue)}
+#ld{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .6s}#ld.x{opacity:0;pointer-events:none}#ld .orb{margin:0;width:min(130px,34vw);cursor:default}#ld span{font:600 .75rem ui-monospace,Consolas,monospace;letter-spacing:.3em;color:var(--mut)}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+.br{margin-top:22px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(0,0,0,.35)}.bb{display:flex;gap:6px;align-items:center;padding:8px 10px;border-bottom:1px solid var(--line);font:.72rem ui-monospace,Consolas,monospace}.bb button{width:28px;height:28px;border-radius:6px;border:1px solid var(--line);background:none;color:var(--fg);cursor:pointer}.bb button:disabled{opacity:.3;cursor:default}.bu{flex:1;min-width:0;color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:rgba(255,255,255,.05);padding:6px 10px;border-radius:6px}
+.br .ty{padding:10px;border-bottom:1px solid var(--line)}.bp{padding:16px;font:.85rem/1.65 ui-monospace,Consolas,monospace;min-height:12em;color:#b9c3d0;animation:fi .3s}.bp h3{font-weight:600;font-size:1rem;color:var(--fg);margin-bottom:8px}.bp a{color:#7aa7ff;text-decoration:underline;cursor:pointer}
+.en{display:block;margin-top:16px;font:500 .75rem ui-monospace,Consolas,monospace;color:var(--mut)}.en input{display:block;width:100%;margin-top:8px;accent-color:var(--org)}
+#snd{width:30px;height:28px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--mut);cursor:pointer;font-size:.8rem}#snd.on{border-color:var(--blue)}
+
+.sk{position:fixed;left:12px;top:-60px;z-index:60;background:var(--blue);color:#06101a;padding:10px 16px;border-radius:8px;font-size:.85rem;text-decoration:none;transition:top .2s}.sk:focus{top:12px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--yel);outline-offset:3px;border-radius:6px}
+#dots{position:fixed;right:clamp(10px,1.6vw,22px);top:50%;transform:translateY(-50%);z-index:22;display:flex;flex-direction:column;gap:2px}
+#dots a{display:block;width:22px;height:22px;position:relative}#dots a:after{content:"";position:absolute;left:8px;top:8px;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.28);transition:.25s}
+#dots a:hover:after{background:var(--fg)}#dots a.on:after{background:var(--org);transform:scale(1.7)}
+#dots a span{position:absolute;right:26px;top:50%;transform:translateY(-50%);white-space:nowrap;font:500 .66rem ui-monospace,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase;background:rgba(8,11,16,.85);padding:3px 8px;border-radius:6px;opacity:0;pointer-events:none;transition:.2s}
+#dots a:hover span,#dots a:focus-visible span{opacity:1}
+.go2{margin-left:10px;border-color:var(--line);color:var(--mut)}.go2:hover{background:var(--fg);color:#06101a}
+@media(max-width:900px){#dots{display:none}.go2{margin:12px 0 0 0;display:block;width:max-content;margin-inline:auto}}
+
+/* ===== Modo informativo: lectura primero, 3D como fondo ===== */
+body{font-size:17px}
+#ld,#hud,#dots,.lbl,.scue{display:none!important}
+nav{background:rgba(7,9,13,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:calc(10px + env(safe-area-inset-top,0px));padding-bottom:10px}
+main{position:relative;z-index:5;max-width:780px;margin:0 auto;padding:0 clamp(18px,4vw,28px);transition:opacity .5s}
+section{display:block;min-height:0;padding:0}
+section.hs{padding:112px 0 40px;text-align:left}
+.hs .hw{margin:0;width:100%}.hs .orb{width:84px;margin:0 0 22px}.hs h1{font-size:clamp(2rem,5.4vw,3.3rem);line-height:1.12}.hs p{margin:16px 0 0;max-width:62ch;font-size:1.05rem;line-height:1.7}
+.col{width:100%;padding:34px 0 40px;background:none;border:0;border-top:1px solid var(--line);border-radius:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+.col h2{font-size:clamp(1.55rem,3.6vw,2.1rem);line-height:1.2}
+.col>p{font-size:1.04rem;line-height:1.75;color:#cdd5df;max-width:68ch}
+.sum{margin:26px 0 8px;padding:18px 20px;border-left:3px solid var(--org);background:rgba(255,255,255,.04);border-radius:0 12px 12px 0}
+.sum h2{font:700 .78rem ui-monospace,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--org);margin-bottom:10px}
+.sum ul{margin:0;padding-left:1.1em}.sum li{margin:8px 0;line-height:1.6;color:#e1e7ee}
+.part{margin:56px 0 0;padding-top:8px}.part span{font:700 .74rem ui-monospace,Consolas,monospace;letter-spacing:.16em;color:var(--blue)}.part b{display:block;margin-top:6px;font-size:clamp(1.9rem,5vw,2.8rem);line-height:1.1;letter-spacing:-.01em;padding-bottom:18px}
+.nds{grid-template-columns:1fr;gap:12px}
+.nd{cursor:default}.nd p{max-height:none;opacity:1;margin-top:10px;font-size:.95rem}
+.go2{margin-left:10px}
+.hs .go{margin-top:22px}
+body.v3 #gl{opacity:1!important}body.v3 main{opacity:.04;pointer-events:none}
+@media(max-width:900px){section.hs{padding-top:96px}.col{padding:28px 0 32px}.go2{margin:12px 0 0;display:block;width:max-content;margin-inline:0}}
+
+/* ===== Diseño editorial: menos lista, más composición ===== */
+main{max-width:1060px;counter-reset:s}
+section.hs{padding:124px 0 56px}
+.hs h1{font-size:clamp(2.4rem,6.4vw,4.6rem);line-height:1.04;letter-spacing:-.02em;max-width:15ch}
+.sum{background:none;border:0;padding:0;margin:34px 0 10px}
+.sum ul{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;list-style:none;padding:0;counter-reset:q}
+.sum li{counter-increment:q;margin:0;padding:20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,rgba(240,138,36,.09),rgba(255,255,255,.02));font-size:.95rem;line-height:1.55}
+.sum li:before{content:"0" counter(q);display:block;font:700 1.8rem ui-monospace,Consolas,monospace;color:var(--org);margin-bottom:8px}
+.col{border-top:0;padding:64px 0 24px}
+.col:after{content:"";display:block;clear:both}
+.col>.ey,.col>h2{float:left;clear:left;width:280px}
+.col>*:not(.ey):not(h2){margin-left:340px}
+.col:before{counter-increment:s;content:counter(s,decimal-leading-zero);float:left;clear:left;width:280px;font:700 4.2rem/1 ui-monospace,Consolas,monospace;color:rgba(111,183,232,.16);margin-bottom:10px}
+.col>p{max-width:none;font-size:1.1rem;line-height:1.8}
+.part{margin:90px 0 0;padding:44px 0 6px;border-top:1px solid var(--line)}
+.part span{display:inline-block;padding:4px 12px;border:1px solid var(--blue);border-radius:999px}
+.part b{font-size:clamp(2.4rem,7vw,5rem);line-height:1.02;letter-spacing:-.02em;padding-bottom:6px}
+.nds{grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.nd{padding:22px;border-radius:18px;background:linear-gradient(160deg,rgba(111,183,232,.1),rgba(255,255,255,.02))}
+.nd .at{display:none}.nd .hd{display:block}
+.nd .hd b{display:block;font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.08;color:var(--fg);font-weight:700}
+.nd .hd span{display:block;margin-top:6px;color:var(--blue);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase}
+.nd.open{grid-column:auto}
+@media(max-width:900px){main{max-width:640px}.col{padding:44px 0 12px}.col>.ey,.col>h2,.col:before{float:none;width:auto}.col>*:not(.ey):not(h2){margin-left:0}.col:before{font-size:3rem}.sum ul,.nds{grid-template-columns:1fr}.part{margin-top:56px}}
+/* ===== Un estilo distinto por sección ===== */
+#sx3 .col>.ey,#sx6 .col>.ey,#s5 .col>.ey,#s7 .col>.ey,#s3 .col>.ey,#s4 .col>.ey,#sx8 .col>.ey,#s6 .col>.ey,#sx3 .col>h2,#sx6 .col>h2,#s5 .col>h2,#s7 .col>h2,#s3 .col>h2,#s4 .col>h2,#sx8 .col>h2,#s6 .col>h2,#sx3 .col:before,#sx6 .col:before,#s5 .col:before,#s7 .col:before,#s3 .col:before,#s4 .col:before,#sx8 .col:before,#s6 .col:before{float:none;clear:none;width:auto}
+#sx3 .col>*,#sx6 .col>*,#s5 .col>*,#s7 .col>*,#s3 .col>*,#s4 .col>*,#sx8 .col>*,#s6 .col>*{margin-left:0}
+#sx3 .col,#sx6 .col,#s5 .col,#s7 .col{text-align:center}
+#sx3 .col>p,#sx6 .col>p,#s5 .col>p,#s7 .col>p{margin-inline:auto;max-width:62ch}
+#sx3 .col>h2,#sx6 .col>h2,#s5 .col>h2,#s7 .col>h2,#s3 .col>h2,#s4 .col>h2,#sx8 .col>h2,#s6 .col>h2{font-size:clamp(1.9rem,4.6vw,3rem);margin-bottom:6px}
+#s3 .col>p,#s4 .col>p,#sx8 .col>p,#s6 .col>p{max-width:70ch}
+
+/* s2 · cadena: pasos verticales conectados */
+#s2 .nds{grid-template-columns:1fr;gap:0;margin-top:8px}
+#s2 .nd{position:relative;background:none;border:0;border-left:2px solid rgba(111,183,232,.45);border-radius:0;padding:2px 0 28px 26px}
+#s2 .nd:last-child{border-left-color:transparent}
+#s2 .nd:before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--org);box-shadow:0 0 0 5px rgba(240,138,36,.2)}
+#s2 .nd .hd b{font-size:1.7rem;color:var(--org)}#s2 .nd .hd span{color:var(--fg)}
+/* s3 · cifras gigantes en fila */
+#sx3 .nds{grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0;margin-top:44px}
+#sx3 .nd{background:none;border:0;border-left:1px solid var(--line);border-radius:0;padding:10px 20px;text-align:center}
+#sx3 .nd:first-child{border-left:0}
+#sx3 .nd .hd b{font-size:clamp(2.4rem,5.6vw,4rem);background:linear-gradient(90deg,var(--blue),var(--org));-webkit-background-clip:text;background-clip:text;color:transparent}
+/* s4 · panel de energía */
+#s3 .col{background:radial-gradient(120% 140% at 0% 0%,rgba(240,138,36,.24),rgba(8,11,16,.92) 62%);border:1px solid rgba(240,138,36,.35);border-radius:28px;padding:48px clamp(20px,4vw,56px);margin-top:56px}
+#s3 .col:before{color:rgba(240,138,36,.25)}#s3 .nds{grid-template-columns:repeat(3,1fr)}
+#s3 .nd{background:rgba(0,0,0,.28);border-color:rgba(240,138,36,.3)}#s3 .nd .hd b{color:var(--yel)}
+/* s5 · capas del detector: tarjetas que se deslizan */
+#s4 .nds{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding-bottom:14px;margin-top:30px}
+#s4 .nd{flex:0 0 min(300px,80%);scroll-snap-align:start;min-height:210px;border-top:3px solid var(--blue)}
+#s4 .nd:nth-child(2){border-top-color:var(--grn)}#s4 .nd:nth-child(3){border-top-color:var(--yel)}#s4 .nd:nth-child(4){border-top-color:var(--org)}
+/* s6 · hitos en zigzag */
+#sx6 .nds{grid-template-columns:1fr 1fr;gap:0 64px;position:relative;margin-top:44px;text-align:left}
+#sx6 .nds:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--line)}
+#sx6 .nd{position:relative;margin-bottom:22px}#sx6 .nd:nth-child(even){margin-top:64px}
+#sx6 .nd:nth-child(odd){text-align:right}
+#sx6 .nd:after{content:"";position:absolute;top:26px;width:14px;height:14px;border-radius:50%;background:var(--org);box-shadow:0 0 0 5px rgba(240,138,36,.2)}
+#sx6 .nd:nth-child(odd):after{right:-39px}#sx6 .nd:nth-child(even):after{left:-39px}
+/* s7 · navegador */
+#s5 .br{margin:36px auto 0;max-width:880px;text-align:left;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(111,183,232,.28)}
+/* s8 · página de papel estilo web de 1990 */
+#sx8 .col{background:#f3efe4;color:#1a1a1a;border-radius:6px;padding:44px clamp(20px,4vw,56px);box-shadow:10px 10px 0 rgba(111,183,232,.4);font-family:Georgia,"Times New Roman",serif;margin-top:56px}
+#sx8 .col:before{color:rgba(0,0,0,.1)}#sx8 .ey{color:#7a4a00}#sx8 .col>h2{color:#000;font-family:Georgia,serif}#sx8 .col>p{color:#222}
+#sx8 .nds{grid-template-columns:1fr;gap:0}
+#sx8 .nd{background:none;border:0;border-bottom:1px dotted #8a8577;border-radius:0;padding:14px 0}
+#sx8 .nd .hd b{font-size:1.15rem;color:#000;font-family:Georgia,serif}#sx8 .nd .hd span{display:inline;margin-left:8px;color:#555;text-transform:none;letter-spacing:0;font-size:1rem}
+#sx8 .nd p{color:#2a2a2a}#sx8 .nd a{color:#0000ee;text-decoration:underline}
+/* s9 · directorio de enlaces compacto */
+#s6 .nds{grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}
+#s6 .nd{padding:16px;border-radius:12px;background:rgba(255,255,255,.04);transition:transform .2s,border-color .2s}#s6 .nd:hover{transform:translateY(-3px)}
+#s6 .nd .hd b{font:700 .78rem ui-monospace,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--org)}
+#s6 .nd .hd span{color:var(--fg);font-size:1rem;text-transform:none;letter-spacing:0}#s6 .nd p{font-size:.88rem}
+/* s10 · columnas hacia el horizonte */
+#s7 .nds{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:44px;text-align:left}
+#s7 .nd{padding:30px 22px;min-height:270px;border-radius:22px 22px 8px 8px;border-top:3px solid var(--org);background:linear-gradient(180deg,rgba(240,138,36,.16),rgba(255,255,255,0) 72%)}
+#s7 .nd .hd b{font-size:clamp(2rem,4vw,2.8rem);color:var(--org)}#s7 .nd .hd span{color:var(--fg)}
+@media(max-width:900px){
+#sx3 .nd{border-left:0;border-top:1px solid var(--line)}#sx3 .nd:first-child{border-top:0}
+#s3 .nds,#s6 .nds{grid-template-columns:1fr}#s3 .col{margin-top:36px;padding:34px 20px}#sx8 .col{margin-top:36px;box-shadow:6px 6px 0 rgba(111,183,232,.4)}
+#sx6 .nds{grid-template-columns:1fr;padding-left:28px}#sx6 .nds:before{left:6px}#sx6 .nd:nth-child(odd),#sx6 .nd:nth-child(even){text-align:left;margin-top:0}
+#sx6 .nd:nth-child(odd):after,#sx6 .nd:nth-child(even):after{left:-29px;right:auto}}
+#gl{transition:opacity .8s}
+body.out #gl{animation:brk .9s ease-out}@keyframes brk{0%{transform:scale(.9)}60%{transform:scale(1.05)}100%{transform:scale(1)}}
+body.out main{pointer-events:none}body.out main a,body.out main .nd,body.out main .orb,body.out main .go,body.out main .br,body.out main .col>p,body.out main h1{pointer-events:auto}
+h1,h2,.col>p,.hs p{text-shadow:0 2px 14px #07090d}
+@media(prefers-reduced-motion:reduce){body.out #gl{animation:none}}
+#gl{touch-action:pan-y}
+@media(min-width:901px){
+#s5 .col,#sx8 .col,#s6 .col{width:min(46vw,540px);margin-right:auto;text-align:left}
+#s5 .col>p,#s6 .col>p{margin-inline:0}
+#s5 .br{margin:28px 0 0}
+#s6 .nds{grid-template-columns:1fr 1fr}
+body.out main .col>*{pointer-events:auto}
+}
+
+section.hs{min-height:100vh;padding:90px 0 0;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
+.hs .hw{width:100%;display:flex;flex-direction:column;align-items:center}.hs .orb{display:none}
+.hs h1{max-width:none;font-size:clamp(2.8rem,10.5vw,8.4rem);line-height:1;letter-spacing:-.035em;background:linear-gradient(90deg,#e9edf2,#6fb7e8 55%,#f08a24);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none}
+.hs p{margin-inline:auto;text-align:center}
+.hs .sum{position:absolute;left:0;right:0;bottom:20px;margin:0;text-align:left}
+@media(max-width:900px){.hs .sum{position:static;margin-top:28px}}
+.nl{position:fixed;left:0;top:0;z-index:7;transform:translate(12px,-50%);font:600 .72rem ui-monospace,Consolas,monospace;letter-spacing:.06em;padding:4px 10px;background:rgba(8,11,16,.85);border-left:2px solid var(--org);color:var(--fg);text-decoration:none;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s,background .2s}
+.nl.on{opacity:1;pointer-events:auto}.nl:hover,.nl:focus-visible{background:var(--org);color:#06101a}
+.nd{background:linear-gradient(160deg,rgba(111,183,232,.1),rgba(8,11,16,.78))}
+section.hs{background:none!important}
+.col:before,.part{display:none!important}.sum li:before{content:none!important}.sum li{padding:18px 20px}
+.js section[data-rv] .col{opacity:0;transform:translateY(36px);transition:opacity 1s ease,transform 1s ease}
+.js section[data-rv].rv .col{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js section[data-rv] .col{transition:none}}
+@media(max-width:900px){.nl{font-size:.62rem;padding:3px 7px}}
+.gs{display:none}
+@media(max-width:900px){.gs{display:flex;height:100vh;min-height:520px;align-items:flex-end;justify-content:center;padding-bottom:7vh;pointer-events:none}.gs span{font:600 .7rem ui-monospace,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);text-align:center}}
+.nr{display:flex;align-items:center;gap:8px}
+.sr{position:relative;display:flex;align-items:center;height:36px;width:38px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);transition:width .45s cubic-bezier(.2,.9,.25,1),border-color .25s,background .25s,box-shadow .25s}
+.sr:hover{border-color:rgba(111,183,232,.5)}.sr.open{width:min(300px,46vw);border-color:var(--blue);background:rgba(8,11,16,.92);box-shadow:0 0 0 4px rgba(111,183,232,.12)}
+#sb{flex:none;width:34px;height:34px;display:grid;place-items:center;background:none;border:0;color:var(--mut);cursor:pointer;border-radius:50%;transition:color .2s}.sr:hover #sb,.sr.open #sb{color:var(--fg)}
+#si{flex:1;min-width:0;width:0;opacity:0;background:none;border:0;outline:0;color:var(--fg);font:inherit;font-size:.86rem;padding:0;transition:opacity .25s .1s}.sr.open #si{opacity:1;padding-right:6px}
+#sk2{display:none;margin-right:9px;font:600 .62rem ui-monospace,Consolas,monospace;color:var(--mut);border:1px solid var(--line);border-radius:5px;padding:1px 5px}.sr.open #sk2{display:block}
+#rs{position:fixed;top:62px;right:clamp(16px,4vw,48px);z-index:25;width:min(440px,92vw);max-height:62vh;overflow:auto;background:rgba(8,11,16,.97);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:16px;padding:6px;box-shadow:0 18px 50px rgba(0,0,0,.55);opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top right;transition:opacity .22s,transform .28s cubic-bezier(.2,.9,.25,1),visibility .22s}
+#rs.on{opacity:1;visibility:visible;transform:none}
+.ri{display:block;width:100%;text-align:left;background:none;border:0;color:var(--fg);font:inherit;padding:10px 12px;border-radius:11px;cursor:pointer;transition:background .15s}.ri.on,.ri:hover{background:rgba(111,183,232,.13)}
+.ri b{display:block;font-weight:600;font-size:.92rem;margin:3px 0 2px}.ri i{display:block;font-style:normal;font-size:.78rem;color:var(--mut);line-height:1.45}
+.ri mark{background:rgba(240,138,36,.28);color:#ffd9b0;border-radius:3px;padding:0 1px}
+.rt{font:700 .6rem ui-monospace,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}.rt.tl{color:var(--org)}.rt.tc{color:#9fb0c3}
+.rn{padding:14px 12px;color:var(--mut);font-size:.84rem}.rh{font:500 .66rem ui-monospace,Consolas,monospace;letter-spacing:.06em;color:var(--mut);padding:8px 12px 4px;border-top:1px solid var(--line);margin-top:4px}
+.lm{position:relative}#lb{display:flex;align-items:center;gap:6px;height:36px;padding:0 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);color:var(--fg);font:600 .72rem ui-monospace,Consolas,monospace;letter-spacing:.08em;cursor:pointer;transition:border-color .2s,background .2s}#lb:hover,.lm.open #lb{border-color:var(--blue);background:rgba(111,183,232,.1)}
+#ll{position:absolute;right:0;top:calc(100% + 10px);list-style:none;padding:6px;margin:0;min-width:160px;background:rgba(8,11,16,.97);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.55);opacity:0;visibility:hidden;transform:translateY(-8px) scale(.97);transform-origin:top right;transition:opacity .2s,transform .25s cubic-bezier(.2,.9,.25,1),visibility .2s}.lm.open #ll{opacity:1;visibility:visible;transform:none}
+#ll button{display:flex;justify-content:space-between;width:100%;background:none;border:0;color:var(--fg);font:inherit;font-size:.85rem;padding:9px 12px;border-radius:9px;cursor:pointer}#ll button:hover{background:rgba(111,183,232,.13)}#ll button.on{color:var(--org)}
+.nd.hl{animation:hlp 1.8s ease}@keyframes hlp{0%,100%{box-shadow:0 0 0 0 rgba(111,183,232,0)}30%{box-shadow:0 0 0 6px rgba(111,183,232,.35)}}
+.cr{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);color:var(--fg);font-size:.9rem;letter-spacing:.01em}
+@media(max-width:900px){#rs{left:10px;right:10px;width:auto}#sk2{display:none!important}.sr.open{width:min(185px,44vw)}#si{font-size:16px}}
+#sg{position:absolute;left:34px;top:0;bottom:0;right:34px;display:none;align-items:center;font-size:.86rem;color:var(--mut);pointer-events:none;white-space:pre;overflow:hidden}.sr.open #sg{display:flex}#sg i{font-style:normal;color:transparent}
+.rg{padding:8px 12px 4px;font:700 .6rem ui-monospace,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.rd{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);margin-right:6px;box-shadow:0 0 8px var(--c);vertical-align:middle}
+.ch{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.chip{display:inline-block;padding:4px 10px;border:1px solid rgba(111,183,232,.4);border-radius:999px;font-size:.74rem;text-decoration:none!important;color:var(--blue);transition:background .2s,color .2s}.chip:hover{background:var(--blue);color:#06101a}
+.nd.open p{max-height:520px}
+#s6 .nd{border-top:3px solid rgb(var(--acc,111,183,232));transition:box-shadow .25s,border-color .25s,transform .25s}#s6 .nd .at:before{background:rgb(var(--acc,240,138,36))}
+#s6 .nd.lit,#s6 .nd:hover{box-shadow:0 0 0 1px rgb(var(--acc,111,183,232)),0 10px 34px rgba(var(--acc,111,183,232),.28);transform:translateY(-2px)}
+.nl{border-left-color:rgb(var(--acc,240,138,36))}.nl.hot{background:rgb(var(--acc,240,138,36));color:#06101a}
+@media(max-width:900px){#sg{font-size:16px}}
+
+:root{--disp:Inter,"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;--ser:Inter,"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+body{background:radial-gradient(ellipse 85% 55% at 50% 16%,rgba(20,58,130,.38),rgba(5,7,13,0) 70%) fixed,#05070d}
+.logo{font-family:var(--disp);font-weight:600;letter-spacing:.16em;font-size:1.1rem}
+nav .lk a{font-family:var(--disp);font-weight:500;font-size:1.02rem;letter-spacing:.06em;text-transform:uppercase}
+#main .hs h1{font-family:var(--disp);font-weight:700;letter-spacing:.012em;line-height:.92;font-size:clamp(3.6rem,13vw,10.5rem);max-width:none;filter:drop-shadow(0 0 34px rgba(45,140,255,.55)) drop-shadow(0 0 3px rgba(255,255,255,.25))}
+#main .hs p{font-family:var(--ser);font-style:italic;font-size:clamp(1.05rem,2vw,1.4rem);line-height:1.55;color:#cbd6e4}
+#main .col>h2,#main .part b{font-family:var(--disp);font-weight:600;letter-spacing:.005em;line-height:.98;font-size:clamp(2.3rem,5.4vw,3.9rem)!important}
+#main .col>p{font-family:var(--ser);font-size:clamp(1.05rem,1.8vw,1.2rem);line-height:1.7}
+.nd .hd b{font-family:var(--disp);font-weight:600;font-size:1.55rem;letter-spacing:.02em}
+.gs span,.ey{letter-spacing:.14em}
+
+.lw{display:flex;align-items:center;gap:10px}
+@media(min-width:901px){.sr.open{width:300px}}
+
+/* ===== v15: tipografía, buscador mínimo, selector sin banderas, pie ===== */
+body{font-family:var(--disp);font-weight:400}
+.logo{font-weight:600;letter-spacing:.18em;font-size:1rem}
+nav .lk a{font-weight:400;font-size:.86rem;letter-spacing:.01em;text-transform:none;padding:10px 4px}
+#main .hs h1{font-weight:300;letter-spacing:-.045em;line-height:1.02;font-size:clamp(2.4rem,8.4vw,7.2rem);filter:none;text-shadow:none}
+#main .hs p{font-style:normal;font-weight:300;font-size:clamp(1.02rem,1.7vw,1.25rem);line-height:1.65;color:#c4cfdc}
+#main .col>h2,#main .part b{font-weight:600;letter-spacing:-.025em;line-height:1.05;font-size:clamp(2rem,4.6vw,3.3rem)!important}
+#main .col>p{font-weight:400;font-size:clamp(1rem,1.5vw,1.1rem);line-height:1.75;color:#cfd7e2}
+.nd .hd b{font-weight:600;letter-spacing:-.01em;font-size:1.5rem}
+h1,h2,.col>p,.hs p{text-shadow:none}
+.nr{gap:12px}.sr{height:44px;width:44px}#sb{width:42px;height:42px}#sb svg{width:18px;height:18px}
+#lb{height:44px;padding:0 15px;gap:8px;font:600 .74rem/1 var(--disp);letter-spacing:.1em}
+#main .hs{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+#main .hs .sum{position:relative;left:auto;right:auto;bottom:auto;margin:44px 0 0}
+#up{width:auto;padding:0 18px;border-radius:999px;font:500 .84rem/1 var(--disp);white-space:nowrap}
+footer{padding:72px clamp(20px,6vw,96px) calc(36px + env(safe-area-inset-bottom,0px));background:rgba(6,10,22,.78);border-top:1px solid rgba(111,183,232,.45);line-height:1.6}
+.fg{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:48px;max-width:1160px;margin:0 auto}
+.fb b{display:block;font-weight:600;font-size:1.6rem;letter-spacing:-.02em;color:var(--fg)}.fb b i{font-style:normal;color:#2d8cff}
+.fb p{margin-top:14px;max-width:34ch;color:var(--mut);font-size:.95rem}
+.fc h3{font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--fg);margin-bottom:10px}
+footer .fc a{display:flex;align-items:center;min-height:44px;margin:0;color:var(--mut);text-decoration:none;font-size:.95rem;transition:color .2s}
+footer .fc a:hover{color:var(--fg)}footer .fc.fr a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+footer .fb a{display:inline;margin:0;color:var(--blue)}
+.fcr{max-width:1160px;margin:34px auto 0;padding-top:22px;border-top:1px solid var(--line);text-align:center;color:#aab5c4;font-size:.9rem}
+@media(max-width:800px){.fg{grid-template-columns:1fr 1fr;gap:28px 24px}.fb{grid-column:1/-1}}
+@media(max-width:480px){.fg{grid-template-columns:1fr}}
+
+/* ===== v16: portada en teléfonos — el anillo 3D arriba, el texto debajo ===== */
+@media(max-width:900px){
+#main .hs{justify-content:flex-start;padding-top:60vh;padding-top:60svh;padding-bottom:32px}
+#main .hs .hw{align-items:center;text-align:center}
+#main .hs p{font-size:1rem;line-height:1.55;margin-top:12px}
+#main .hs .go{margin-top:18px}
+#main .hs .go2{margin:10px auto 0}
+#main .hs .go{order:1}#main .hs .go2{order:2}
+#main .hs .sum{order:3;margin-top:40px}
+}
+@media(max-width:900px) and (max-height:520px){
+#main .hs{padding-top:96px}
+#gl{opacity:.35!important}
+}
+
+/* ===== v17: W destacadas y portada móvil equilibrada ===== */
+#main .hs h1 b{font-weight:600;background:linear-gradient(180deg,#fff,#9fd2f7);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 0 8px rgba(111,183,232,.22))}
+#main .hs h1 b:nth-of-type(2){background-image:linear-gradient(180deg,#bfe3ff,#4aa3e6)}
+#main .hs h1 b:nth-of-type(3){background-image:linear-gradient(180deg,#ffd29a,#f08a24);filter:drop-shadow(0 0 8px rgba(240,138,36,.22))}
+@media(max-width:699px){#main .hs{padding-top:50vh;padding-top:50svh}}
+@media(max-width:900px) and (max-height:520px){#main .hs{padding-top:96px}}
+
+/* ===== v18: logo WWW y portada móvil con solo el título ===== */
+.www{display:inline-flex;letter-spacing:.02em;font-family:var(--disp)}
+.www b{font-weight:700;font-style:normal;background:linear-gradient(180deg,#fff,#9fd2f7);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.www b:nth-child(2){background-image:linear-gradient(180deg,#bfe3ff,#4aa3e6)}
+.www b:nth-child(3){background-image:linear-gradient(180deg,#ffd29a,#f08a24)}
+.logo .www{font-size:1.3rem;line-height:1}
+#ld .www{font-size:1.5rem;letter-spacing:.08em}
+@media(max-width:699px){
+#main .hs{padding-top:calc(30vh - 30px);padding-top:calc(30svh - 30px)}
+#main .hs h1{font-size:clamp(1.7rem,8.6vw,2.3rem)}
+#main .hs .ey{margin-bottom:6px}
+#main .hs p{margin-top:50vh;margin-top:50svh}
+}
+@media(max-width:900px) and (max-height:520px){#main .hs p{margin-top:12px}}
+
+/* ===== v20: menú hamburguesa y anillo centrado en teléfonos ===== */
+.mb,#mm{display:none}
+@media(max-width:900px){
+.mb{order:9;display:grid;align-content:center;justify-items:center;gap:5px;width:44px;height:44px;padding:0;border:1px solid rgba(255,255,255,.28);border-radius:12px;background:rgba(255,255,255,.04);cursor:pointer;transition:border-color .2s,background .2s}
+.mb span{display:block;width:18px;height:2px;border-radius:2px;background:var(--fg);transition:transform .25s,opacity .2s}
+.mb:hover,.mb.on{border-color:var(--blue);background:rgba(111,183,232,.1)}
+.mb.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}.mb.on span:nth-child(2){opacity:0}.mb.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+#mm{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;position:fixed;left:0;right:0;top:calc(64px + env(safe-area-inset-top,0px));z-index:19;padding:6px clamp(16px,4vw,48px) 18px;background:rgba(7,9,13,.97);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .2s,transform .25s,visibility .2s}
+#mm.on{opacity:1;visibility:visible;transform:none}
+#mm a{display:flex;align-items:center;min-height:54px;color:var(--fg);text-decoration:none;font-size:1.08rem;font-weight:500;border-bottom:1px solid var(--line)}
+#mm a:last-child{border-bottom:0}#mm a:hover{color:var(--blue)}
+.nr:has(.sr.open) .lm,.nr:has(.sr.open) .mb{display:none}
+.sr.open{width:min(300px,calc(100vw - 170px))}
+}
+@media(max-width:420px){#lc{display:none}#lb{padding:0;width:44px;justify-content:center}}
+@media(max-width:699px){
+#main .hs{padding-top:calc(50vh - 30px);padding-top:calc(50svh - 30px)}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<a class="sk" href="#main">Saltar al contenido</a>
+<div id="bar"></div>
+<nav aria-label="Principal"><a class="logo" href="#s0"><i></i><span class="www"><b>W</b><b>W</b><b>W</b></span></a><div class="lk"></div><div class="nr"><div class="sr" id="sr"><button id="sb" type="button" aria-label="Buscar"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button><input id="si" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="rs"><span id="sg" aria-hidden="true"></span><kbd id="sk2">/</kbd></div><button id="mb" class="mb" type="button" aria-label="Menú" aria-expanded="false" aria-controls="mm"><span></span><span></span><span></span></button><div class="lm" id="lm"><button id="lb" type="button" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span id="lc">ES</span></button><ul id="ll"></ul></div></div></nav>
+<nav id="mm" aria-label="Menú"></nav>
+<div id="rs" role="listbox"></div>
+<div id="ld"><div class="orb" style="--rx:0deg;--ry:0deg"><b></b><i style="--a:0deg"></i><i style="--a:60deg"></i><i style="--a:120deg"></i></div><span class="www"><b>W</b><b>W</b><b>W</b></span></div>
+<script>(function(){var d=document.getElementById('ld'),go=function(){setTimeout(function(){d.classList.add('x');setTimeout(function(){d.remove()},700)},500)};addEventListener('load',go);setTimeout(go,4000)})()</script>
+<canvas id="gl"></canvas><button id="up" type="button" aria-label="Volver arriba">↑</button>
+<div id="hud"></div>
+<main id="main" tabindex="-1"><div data-prerender><section class="hs"><div class="hw"><h1>World Wide Web</h1><p>Un solo documento desde el que se enlazaba todo lo que existía en línea sobre el proyecto WorldWideWeb (W3). Rediseño del primer sitio web publicado por el CERN en <a href="http://info.cern.ch/">info.cern.ch</a>.</p><p><strong>Proyecto educativo del COVAO (Colegio Vocacional de Artes y Oficios, Costa Rica). No es un sitio oficial del CERN.</strong> Hecho por Yeiner Vindas Hernández.</p><h2>En pocas palabras</h2><ul><li>W3 es una iniciativa de recuperación de información hipermedia de área amplia.</li><li>Busca dar acceso universal a un gran universo de documentos.</li><li>Todo lo que hay en línea sobre W3 está enlazado a un mismo documento.</li></ul></div></section>
+<section><h2>Una iniciativa hipermedia</h2><p>El WorldWideWeb (W3) es una iniciativa de recuperación de información hipermedia de área amplia que busca dar acceso universal a un gran universo de documentos.</p></section>
+<section><h2>Todo está enlazado</h2><p>Todo lo que hay en línea sobre W3 está enlazado, directa o indirectamente, a este documento: <a href="http://info.cern.ch/hypertext/WWW/Summary.html">resumen ejecutivo</a>, <a href="http://info.cern.ch/hypertext/WWW/Administration/Mailing/Overview.html">listas de correo</a>, <a href="http://info.cern.ch/hypertext/WWW/Policy.html">políticas</a> y <a href="http://info.cern.ch/hypertext/WWW/FAQ/List.html">preguntas frecuentes</a>.</p></section>
+<section><h2>Componentes del proyecto</h2><p>Line Mode, Viola (X11), NeXTStep, servidores, herramientas, robot de correo y biblioteca. <a href="http://info.cern.ch/hypertext/WWW/Status.html">Ver el estado</a>.</p></section>
+<section><h2>Documentación</h2><p>Detalles <a href="http://info.cern.ch/hypertext/WWW/Technical.html">técnicos</a>, <a href="http://info.cern.ch/hypertext/WWW/Bibliography.html">bibliografía</a>, <a href="http://info.cern.ch/hypertext/WWW/People.html">personas</a> y la <a href="http://info.cern.ch/hypertext/WWW/History.html">historia del proyecto</a>.</p></section>
+<section><h2>Un documento, una red</h2><p>Todo empieza en un solo documento: <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">The World Wide Web project</a>, tal como lo publicó el CERN.</p></section></div>
+</main><nav id="dots" aria-label="Secciones"></nav>
+<noscript><p style="position:relative;z-index:9;padding:90px 24px;max-width:640px;margin:auto">El WorldWideWeb (W3) es una iniciativa de recuperación de información hipermedia de área amplia que busca dar acceso universal a un gran universo de documentos. Todo lo que hay en línea sobre W3 está enlazado a un mismo documento: <a href="http://info.cern.ch/hypertext/WWW/TheProject.html" style="color:#6fb7e8">The World Wide Web project</a>. Activa JavaScript para ver la versión interactiva.</p></noscript>
+<footer id="ft"></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const LK=(u,t="Abrir →")=>`<a href='${u}' target='_blank' rel='noopener'>${t}</a>`,W="http://info.cern.ch/hypertext/WWW/";
+const SKIP={es:"Ir directo a la Web",en:"Jump to the Web",pt:"Ir direto à Web",fr:"Aller directement au Web",de:"Direkt zum Web"};const IN={"es":{"h":"En pocas palabras","p":["W3 es una iniciativa de recuperación de información hipermedia de área amplia.","Busca dar acceso universal a un gran universo de documentos.","Todo lo que hay en línea sobre W3 está enlazado a un mismo documento."],"pt":["El proyecto","El contenido","Navegar","El origen"]}};const PI={},RN=["I","II","III","IV"];let SEC;const SES=[
+{k:"Inicio",hero:1,e:"info.cern.ch · CERN",h:"World Wide Web",p:"Un solo documento desde el que se enlazaba todo lo que existía en línea sobre el proyecto WorldWideWeb (W3). Baja para recorrerlo.",b:["Comenzar el recorrido","#s1"]},
+{k:"Proyecto",e:"El proyecto",h:"Una iniciativa hipermedia",p:"El WorldWideWeb (W3) es una iniciativa de recuperación de información hipermedia de área amplia que busca dar acceso universal a un gran universo de documentos.",n:[["W3","WorldWideWeb","Así se llama el proyecto.",[[W+"WhatIs.html",58]]],["Hipermedia","Recuperación de información","Una iniciativa de recuperación de información hipermedia."],["Área amplia","Wide-area","El alcance de la iniciativa."],["Universal","Acceso a documentos","Dar acceso universal a un gran universo de documentos."]]},
+{k:"Enlazado",e:"El documento central",h:"Todo está enlazado",p:"Todo lo que hay en línea sobre W3 está enlazado, directa o indirectamente, a este documento.",n:[["Resumen","Resumen ejecutivo",LK(W+"Summary.html","Leer →")],["Correo","Listas de correo",LK(W+"Administration/Mailing/Overview.html","Ver →")],["Políticas","Normas",LK(W+"Policy.html","Ver →")],["Noticias","Noticias de W3 de noviembre","Incluidas entre los documentos enlazados.",[[W+"News/9211.html",59]]],["FAQ","Preguntas frecuentes",LK(W+"FAQ/List.html","Leer →")]]},
+{k:"Software",e:"Productos de software",h:"Componentes del proyecto",p:"Una lista de los componentes del proyecto W3 y su estado actual.",n:[["Line Mode","Componente","Uno de los componentes del proyecto.",[[W+"LineMode/Browser.html",57]]],["Viola","X11","Componente para X11.",[[W+"Status.html#35",57]]],["NeXTStep","Componente","Uno de los componentes del proyecto.",[[W+"NeXT/WorldWideWeb.html",57]]],["Servidores","Componente","Servidores W3.",[[W+"Daemon/Overview.html",57]]],["Herramientas","Tools","Componente del proyecto.",[[W+"Tools/Overview.html",57]]],["Correo","Mail robot","Robot de correo.",[[W+"MailRobot/Overview.html",57]]],["Biblioteca","Library",LK(W+"Status.html#57","Ver estado →")]]},
+{k:"Documentación",e:"Documentación",h:"Para saber más",p:"Detalles técnicos, referencias, participantes y la historia del proyecto.",n:[["Técnico","Protocolos y formatos","Detalles de protocolos, formatos y funcionamiento interno de programas. "+LK(W+"Technical.html","Ver →")],["Bibliografía","Documentación en papel","Documentación en papel sobre W3 y referencias. "+LK(W+"Bibliography.html","Ver →")],["Personas","Quién participó","Una lista de algunas de las personas del proyecto. "+LK(W+"People.html","Ver →")],["Historia","Resumen","Un resumen de la historia del proyecto. "+LK(W+"History.html","Leer →")]]},
+{k:"La Web",e:"Navega el documento",h:"Un documento, muchos enlaces",p:"Esta ventana resume cómo se navegaba entre los documentos de W3. La red 3D se construye a la par: arrástrala y toca sus puntos naranjas.",tl:1},
+{k:"Explorar",e:"Explora la Web original",h:"Todo está conectado",p:"Cada punto naranja del globo es una puerta de entrada que el CERN dejó en info.cern.ch. Tócalo o abre una tarjeta.",n:[["Directorio","¿Qué hay ahí fuera?",LK("http://info.cern.ch/hypertext/DataSources/Top.html","Explorar →"),[["http://info.cern.ch/hypertext/DataSources/bySubject/Overview.html",60],["http://info.cern.ch/hypertext/DataSources/WWW/Servers.html",61]]],["Ayuda","Sobre tu navegador",LK(W+"Help.html","Ver ayuda →")],["Software","Componentes",LK(W+"Status.html","Ver estado →"),[[W+"LineMode/Browser.html","Line Mode"],[W+"Status.html#35","Viola"],[W+"NeXT/WorldWideWeb.html","NeXTStep"],[W+"Daemon/Overview.html",63],[W+"Tools/Overview.html",64],[W+"MailRobot/Overview.html",65],[W+"Status.html#57",66]]],["Técnico","Protocolos y formatos",LK(W+"Technical.html","Ver detalles →")],["Biblioteca","Bibliografía",LK(W+"Bibliography.html","Ver →")],["Personas","Quién participó",LK(W+"People.html","Ver lista →")],["Historia","Resumen del proyecto",LK(W+"History.html","Leer →")],["Ayudar","¿Cómo puedo ayudar?","Si quieres apoyar la web. "+LK(W+"Helping.html","Ver →")],["Código","Obtener el software",LK("http://info.cern.ch/hypertext/README.html","Ver →"),[[W+"LineMode/Defaults/Distribution.html",62]]]]},
+{k:"Origen",e:"Volver al origen",h:"Un documento, una red",p:"Todo empieza en un solo documento. Ábrelo tal como lo publicó el CERN.",n:[["Doc","Documento","Todo lo de W3 está enlazado a un mismo documento."],["W3","Proyecto","Iniciativa de recuperación de información hipermedia."],["→","Origen",LK(W+"TheProject.html","Abrir el original →")]]}
+];
+const FU=["http://info.cern.ch","http://info.cern.ch/hypertext/WWW/TheProject.html","http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html","http://home.web.cern.ch/topics/birth-web","http://home.web.cern.ch/about","https://home.cern/"];
+const FX={"es": {"nv": "Navegar", "rs": "Recursos", "home": "Inicio"}, "en": {"nv": "Navigate", "rs": "Resources", "home": "Home"}, "pt": {"nv": "Navegar", "rs": "Recursos", "home": "Início"}, "fr": {"nv": "Naviguer", "rs": "Ressources", "home": "Accueil"}, "de": {"nv": "Navigation", "rs": "Ressourcen", "home": "Start"}};const UI={es:{nav:[["#s1","Proyecto"],["#s2","Enlazado"],["#s4","Documentación"],["#s5","La Web"],["#s6","Explorar"]],sim:"Simular colisión",sc:"Desplázate",fh:"La Web original",ft:["Sitio original","Primer sitio web","Simulador en modo línea","El nacimiento de la Web","Sobre el CERN","home.cern"],note:"Proyecto educativo del COVAO, no es un sitio oficial del CERN. Contenido tomado de la página original info.cern.ch, traducido al español. Las escenas 3D son una visualización conceptual, no a escala."}};
+const BY=["pP","pL","pS"],BLB=["Proyecto","Enlaces","Explorar"];
+const TLP={es:{pP:["hypertext/WWW/TheProject.html","World Wide Web","El WorldWideWeb (W3) es una iniciativa de recuperación de información hipermedia de área amplia que busca dar acceso universal a un gran universo de documentos. Todo lo que hay en línea sobre W3 está enlazado a este documento. {pL|Ver los documentos enlazados →}"],pL:["hypertext/WWW/TheProject.html","Documentos enlazados","Resumen ejecutivo, listas de correo, políticas, noticias de noviembre y preguntas frecuentes. "+LK(W+"Summary.html","Resumen →")+" {pS|Seguir explorando →}"],pS:["hypertext/WWW/TheProject.html","Explorar","Punteros, ayuda, software, técnico, bibliografía, personas, historia y código. "+LK(W+"History.html","Historia →")+" {pP|Volver al inicio ↺}"]}};
+Object.assign(UI.es,{en:"Energía de colisión",tk:"trazas"});
+UI.es.top="Volver al inicio";
+const LGS=['es','en','pt','fr','de'];let lang='es';try{lang=localStorage.getItem('l')||LGS.find(x=>(navigator.language||'').startsWith(x))||'es'}catch(e){}if(!LGS.includes(lang))lang='es';
+const XL={"es": ["World Wide Web: el primer sitio web del CERN, rediseñado", "Rediseño del primer sitio web, publicado por el CERN en info.cern.ch: el proyecto WorldWideWeb (W3), su documento central y su red de enlaces, con escenas 3D interactivas.", "En pocas palabras", "W3 es una iniciativa de recuperación de información hipermedia de área amplia.", "Busca dar acceso universal a un gran universo de documentos.", "Todo lo que hay en línea sobre W3 está enlazado a un mismo documento.", "Proyecto", "Enlazado", "Documentación", "La Web", "Explorar", "Desplázate", "La Web original", "Sitio original", "Primer sitio web", "Simulador en modo línea", "El nacimiento de la Web", "Sobre el CERN", "home.cern", "Proyecto educativo del COVAO, no es un sitio oficial del CERN. Contenido tomado de la página original info.cern.ch, traducido al español. Las escenas 3D son una visualización conceptual, no a escala.", "Volver al inicio", "Proyecto", "Enlaces", "Explorar", "World Wide Web", "El WorldWideWeb (W3) es una iniciativa de recuperación de información hipermedia de área amplia que busca dar acceso universal a un gran universo de documentos. Todo lo que hay en línea sobre W3 está enlazado a este documento.", "Ver los documentos enlazados →", "Documentos enlazados", "Resumen ejecutivo, listas de correo, políticas, noticias de noviembre y preguntas frecuentes.", "Resumen →", "Seguir explorando →", "Explorar", "Punteros, ayuda, software, técnico, bibliografía, personas, historia y código.", "Historia →", "Volver al inicio ↺", "Buscar en la página…", "Sin resultados", "↑↓ navegar · Enter abrir · Esc cerrar", "Sección", "Tarjeta", "Enlace", "Buscar", "Gira la esfera · toca un punto naranja", "Saltar al contenido", "info.cern.ch", "Directorio", "Ayuda", "Software", "Técnico", "Bibliografía", "Personas", "Historia", "Código", "Proyecto del COVAO Costa Rica", "Hecho por", "Idioma", "Ayudar", "Abrir →", "Qué es el W3", "Noticias de W3", "Temas", "Servidores W3", "FTP anónimo", "Servidores", "Herramientas", "Robot de correo", "Biblioteca", "Sugerencias"], "en": ["World Wide Web: CERN's first website, redesigned", "Redesign of the first website, published by CERN at info.cern.ch: the WorldWideWeb (W3) project, its central document and its network of links, with interactive 3D scenes.", "In a nutshell", "W3 is a wide-area hypermedia information retrieval initiative.", "It aims to give universal access to a large universe of documents.", "Everything online about W3 is linked to a single document.", "Project", "Linked", "Documentation", "The Web", "Explore", "Scroll", "The original Web", "Original site", "First website", "Line-mode simulator", "The birth of the Web", "About CERN", "home.cern", "Educational COVAO project, not an official CERN site. Content taken from the original page at info.cern.ch, translated into English. The 3D scenes are a conceptual visualization, not to scale.", "Back to top", "Project", "Links", "Explore", "World Wide Web", "The WorldWideWeb (W3) is a wide-area hypermedia information retrieval initiative aiming to give universal access to a large universe of documents. Everything online about W3 is linked to this document.", "See the linked documents →", "Linked documents", "Executive summary, mailing lists, policy, W3 news from November and frequently asked questions.", "Summary →", "Keep exploring →", "Explore", "Pointers, help, software, technical, bibliography, people, history and code.", "History →", "Back to start ↺", "Search the page…", "No results", "↑↓ navigate · Enter open · Esc close", "Section", "Card", "Link", "Search", "Spin the globe · tap an orange point", "Skip to content", "info.cern.ch", "Directory", "Help", "Software", "Technical", "Bibliography", "People", "History", "Code", "A COVAO Costa Rica project", "Made by", "Language", "Help us", "Open →", "What is W3", "W3 news", "Subjects", "W3 servers", "Anonymous FTP", "Servers", "Tools", "Mail robot", "Library", "Suggestions"], "pt": ["World Wide Web: o primeiro site do CERN, redesenhado", "Redesenho do primeiro site, publicado pelo CERN em info.cern.ch: o projeto WorldWideWeb (W3), seu documento central e sua rede de links, com cenas 3D interativas.", "Em poucas palavras", "O W3 é uma iniciativa de recuperação de informação hipermídia de área ampla.", "Busca dar acesso universal a um grande universo de documentos.", "Tudo o que existe online sobre o W3 está vinculado a um mesmo documento.", "Projeto", "Vinculado", "Documentação", "A Web", "Explorar", "Role", "A Web original", "Site original", "Primeiro site", "Simulador em modo linha", "O nascimento da Web", "Sobre o CERN", "home.cern", "Projeto educacional do COVAO, não é um site oficial do CERN. Conteúdo extraído da página original info.cern.ch, traduzido para o português. As cenas 3D são uma visualização conceitual, fora de escala.", "Voltar ao início", "Projeto", "Links", "Explorar", "World Wide Web", "O WorldWideWeb (W3) é uma iniciativa de recuperação de informação hipermídia de área ampla que visa dar acesso universal a um grande universo de documentos. Tudo o que existe online sobre o W3 está vinculado a este documento.", "Ver os documentos vinculados →", "Documentos vinculados", "Resumo executivo, listas de e-mail, políticas, notícias de novembro e perguntas frequentes.", "Resumo →", "Continuar explorando →", "Explorar", "Ponteiros, ajuda, software, técnico, bibliografia, pessoas, história e código.", "História →", "Voltar ao início ↺", "Buscar na página…", "Nenhum resultado", "↑↓ navegar · Enter abrir · Esc fechar", "Seção", "Cartão", "Link", "Buscar", "Gire a esfera · toque em um ponto laranja", "Ir para o conteúdo", "info.cern.ch", "Diretório", "Ajuda", "Software", "Técnico", "Bibliografia", "Pessoas", "História", "Código", "Um projeto do COVAO Costa Rica", "Feito por", "Idioma", "Ajudar", "Abrir →", "O que é o W3", "Notícias do W3", "Assuntos", "Servidores W3", "FTP anônimo", "Servidores", "Ferramentas", "Robô de correio", "Biblioteca", "Sugestões"], "fr": ["World Wide Web : le premier site web du CERN, repensé", "Refonte du premier site web, publié par le CERN sur info.cern.ch : le projet WorldWideWeb (W3), son document central et son réseau de liens, avec des scènes 3D interactives.", "En quelques mots", "Le W3 est une initiative de recherche d'information hypermédia à grande échelle.", "Il vise à donner un accès universel à un vaste univers de documents.", "Tout ce qui existe en ligne sur le W3 est relié à un même document.", "Projet", "Relié", "Documentation", "Le Web", "Explorer", "Défilez", "Le Web original", "Site original", "Premier site web", "Simulateur en mode ligne", "La naissance du Web", "À propos du CERN", "home.cern", "Projet éducatif du COVAO, ce n'est pas un site officiel du CERN. Contenu tiré de la page originale info.cern.ch, traduit en français. Les scènes 3D sont une visualisation conceptuelle, pas à l'échelle.", "Retour en haut", "Projet", "Liens", "Explorer", "World Wide Web", "Le WorldWideWeb (W3) est une initiative de recherche d'information hypermédia à grande échelle visant à donner un accès universel à un vaste univers de documents. Tout ce qui existe en ligne sur le W3 est relié à ce document.", "Voir les documents reliés →", "Documents reliés", "Résumé exécutif, listes de diffusion, politiques, actualités de novembre et questions fréquentes.", "Résumé →", "Continuer à explorer →", "Explorer", "Pointeurs, aide, logiciels, technique, bibliographie, personnes, histoire et code.", "Histoire →", "Retour au début ↺", "Rechercher dans la page…", "Aucun résultat", "↑↓ naviguer · Entrée ouvrir · Échap fermer", "Section", "Carte", "Lien", "Rechercher", "Faites tourner le globe · touchez un point orange", "Aller au contenu", "info.cern.ch", "Répertoire", "Aide", "Logiciels", "Technique", "Bibliographie", "Personnes", "Histoire", "Code", "Un projet du COVAO Costa Rica", "Réalisé par", "Langue", "Aider", "Ouvrir →", "Qu'est-ce que le W3", "Actualités du W3", "Sujets", "Serveurs W3", "FTP anonyme", "Serveurs", "Outils", "Robot de courrier", "Bibliothèque", "Suggestions"], "de": ["World Wide Web: die erste Website des CERN, neu gestaltet", "Neugestaltung der ersten Website, vom CERN auf info.cern.ch veröffentlicht: das Projekt WorldWideWeb (W3), sein zentrales Dokument und sein Netz aus Links, mit interaktiven 3D-Szenen.", "Kurz gesagt", "W3 ist eine weiträumige Hypermedia-Initiative zur Informationsbeschaffung.", "Sie soll universellen Zugang zu einem großen Universum von Dokumenten bieten.", "Alles, was es online über W3 gibt, ist mit demselben Dokument verlinkt.", "Projekt", "Verlinkt", "Dokumentation", "Das Web", "Erkunden", "Scrollen", "Das ursprüngliche Web", "Originalseite", "Erste Website", "Line-Mode-Simulator", "Die Geburt des Web", "Über das CERN", "home.cern", "Bildungsprojekt des COVAO, keine offizielle CERN-Seite. Inhalt von der Originalseite info.cern.ch, ins Deutsche übersetzt. Die 3D-Szenen sind eine konzeptionelle Visualisierung, nicht maßstabsgetreu.", "Nach oben", "Projekt", "Links", "Erkunden", "World Wide Web", "Das WorldWideWeb (W3) ist eine weiträumige Hypermedia-Initiative zur Informationsbeschaffung, die einen universellen Zugang zu einem großen Universum von Dokumenten bieten soll. Alles, was es online über W3 gibt, ist mit diesem Dokument verlinkt.", "Verlinkte Dokumente ansehen →", "Verlinkte Dokumente", "Management Summary, Mailinglisten, Richtlinien, W3-Neuigkeiten vom November und häufig gestellte Fragen.", "Zusammenfassung →", "Weiter erkunden →", "Erkunden", "Verweise, Hilfe, Software, Technik, Bibliografie, Personen, Geschichte und Code.", "Geschichte →", "Zurück zum Anfang ↺", "Seite durchsuchen…", "Keine Ergebnisse", "↑↓ navigieren · Enter öffnen · Esc schließen", "Abschnitt", "Karte", "Link", "Suchen", "Globus drehen · orangefarbenen Punkt antippen", "Zum Inhalt springen", "info.cern.ch", "Verzeichnis", "Hilfe", "Software", "Technik", "Bibliografie", "Personen", "Geschichte", "Code", "Ein Projekt des COVAO Costa Rica", "Entwickelt von", "Sprache", "Helfen", "Öffnen →", "Was ist W3", "W3-Neuigkeiten", "Themen", "W3-Server", "Anonymes FTP", "Server", "Werkzeuge", "Mail-Roboter", "Bibliothek", "Vorschläge"]},TXT={"en": ["Home", "info.cern.ch · CERN", "World Wide Web", "A single document from which everything online about the WorldWideWeb (W3) project was linked. Scroll down to explore it.", "Start the journey", "Project", "The project", "A hypermedia initiative", "The WorldWideWeb (W3) is a wide-area hypermedia information retrieval initiative aiming to give universal access to a large universe of documents.", "W3", "WorldWideWeb", "That is the project's name.", "Hypermedia", "Information retrieval", "A hypermedia information retrieval initiative.", "Wide area", "Wide-area", "The reach of the initiative.", "Universal", "Access to documents", "Giving universal access to a large universe of documents.", "Linked", "The central document", "Everything is linked", "Everything online about W3 is linked, directly or indirectly, to this document.", "Summary", "Executive summary", "Read →", "Mail", "Mailing lists", "See →", "Policy", "Rules", "See →", "News", "W3 news from November", "Included among the linked documents.", "FAQ", "Frequently asked questions", "Read →", "Software", "Software products", "Project components", "A list of the W3 project components and their current state.", "Line Mode", "Component", "One of the project's components.", "Viola", "X11", "Component for X11.", "NeXTStep", "Component", "One of the project's components.", "Servers", "Component", "W3 servers.", "Tools", "Tools", "A project component.", "Mail", "Mail robot", "Mail robot.", "Library", "Library", "See status →", "Documentation", "Documentation", "Learn more", "Technical details, references, participants and the history of the project.", "Technical", "Protocols and formats", "Details of protocols, formats and program internals.", "See →", "Bibliography", "Paper documentation", "Paper documentation on W3 and references.", "See →", "People", "Who took part", "A list of some of the people involved in the project.", "See →", "History", "Summary", "A summary of the history of the project.", "Read →", "The Web", "Browse the document", "One document, many links", "This window summarizes how people navigated between W3 documents. The 3D network builds alongside it: drag it and tap its orange points.", "Explore", "Explore the original Web", "Everything is connected", "Each orange point on the globe is a doorway CERN left on info.cern.ch. Tap it or open a card.", "Directory", "What's out there?", "Explore →", "Help", "About your browser", "See help →", "Software", "Components", "See status →", "Technical", "Protocols and formats", "See details →", "Library", "Bibliography", "See →", "People", "Who took part", "See list →", "History", "Project summary", "Read →", "Help", "How can I help?", "If you would like to support the web.", "See →", "Code", "Get the software", "See →", "Origin", "Back to the origin", "One document, one network", "Everything starts in a single document. Open it just as CERN published it.", "Doc", "Document", "Everything about W3 is linked to a single document.", "W3", "Project", "A hypermedia information retrieval initiative.", "→", "Origin", "Open the original →"], "pt": ["Início", "info.cern.ch · CERN", "World Wide Web", "Um único documento a partir do qual se ligava tudo o que existia online sobre o projeto WorldWideWeb (W3). Role para percorrê-lo.", "Começar o percurso", "Projeto", "O projeto", "Uma iniciativa de hipermídia", "O WorldWideWeb (W3) é uma iniciativa de recuperação de informação hipermídia de área ampla que visa dar acesso universal a um grande universo de documentos.", "W3", "WorldWideWeb", "Assim se chama o projeto.", "Hipermídia", "Recuperação de informação", "Uma iniciativa de recuperação de informação hipermídia.", "Área ampla", "Wide-area", "O alcance da iniciativa.", "Universal", "Acesso a documentos", "Dar acesso universal a um grande universo de documentos.", "Vinculado", "O documento central", "Tudo está vinculado", "Tudo o que existe online sobre o W3 está vinculado, direta ou indiretamente, a este documento.", "Resumo", "Resumo executivo", "Ler →", "Correio", "Listas de e-mail", "Ver →", "Políticas", "Normas", "Ver →", "Notícias", "Notícias do W3 de novembro", "Incluídas entre os documentos vinculados.", "FAQ", "Perguntas frequentes", "Ler →", "Software", "Produtos de software", "Componentes do projeto", "Uma lista dos componentes do projeto W3 e seu estado atual.", "Line Mode", "Componente", "Um dos componentes do projeto.", "Viola", "X11", "Componente para X11.", "NeXTStep", "Componente", "Um dos componentes do projeto.", "Servidores", "Componente", "Servidores W3.", "Ferramentas", "Tools", "Componente do projeto.", "Correio", "Mail robot", "Robô de correio.", "Biblioteca", "Library", "Ver status →", "Documentação", "Documentação", "Saiba mais", "Detalhes técnicos, referências, participantes e a história do projeto.", "Técnico", "Protocolos e formatos", "Detalhes de protocolos, formatos e funcionamento interno dos programas.", "Ver →", "Bibliografia", "Documentação em papel", "Documentação em papel sobre o W3 e referências.", "Ver →", "Pessoas", "Quem participou", "Uma lista de algumas das pessoas do projeto.", "Ver →", "História", "Resumo", "Um resumo da história do projeto.", "Ler →", "A Web", "Navegue pelo documento", "Um documento, muitos links", "Esta janela resume como se navegava entre os documentos do W3. A rede 3D se constrói em paralelo: arraste-a e toque nos pontos laranja.", "Explorar", "Explore a Web original", "Tudo está conectado", "Cada ponto laranja do globo é uma porta de entrada que o CERN deixou em info.cern.ch. Toque nele ou abra um cartão.", "Diretório", "O que há lá fora?", "Explorar →", "Ajuda", "Sobre o seu navegador", "Ver ajuda →", "Software", "Componentes", "Ver status →", "Técnico", "Protocolos e formatos", "Ver detalhes →", "Biblioteca", "Bibliografia", "Ver →", "Pessoas", "Quem participou", "Ver lista →", "História", "Resumo do projeto", "Ler →", "Ajudar", "Como posso ajudar?", "Se você quiser apoiar a web.", "Ver →", "Código", "Obter o software", "Ver →", "Origem", "Voltar à origem", "Um documento, uma rede", "Tudo começa em um único documento. Abra-o como o CERN o publicou.", "Doc", "Documento", "Tudo sobre o W3 está vinculado a um mesmo documento.", "W3", "Projeto", "Iniciativa de recuperação de informação hipermídia.", "→", "Origem", "Abrir o original →"], "fr": ["Accueil", "info.cern.ch · CERN", "World Wide Web", "Un seul document auquel était relié tout ce qui existait en ligne sur le projet WorldWideWeb (W3). Faites défiler pour le parcourir.", "Commencer le parcours", "Projet", "Le projet", "Une initiative hypermédia", "Le WorldWideWeb (W3) est une initiative de recherche d'information hypermédia à grande échelle visant à donner un accès universel à un vaste univers de documents.", "W3", "WorldWideWeb", "C'est le nom du projet.", "Hypermédia", "Recherche d'information", "Une initiative de recherche d'information hypermédia.", "Grande échelle", "Wide-area", "La portée de l'initiative.", "Universel", "Accès aux documents", "Donner un accès universel à un vaste univers de documents.", "Relié", "Le document central", "Tout est relié", "Tout ce qui existe en ligne sur le W3 est relié, directement ou indirectement, à ce document.", "Résumé", "Résumé exécutif", "Lire →", "Courrier", "Listes de diffusion", "Voir →", "Politiques", "Règles", "Voir →", "Actualités", "Actualités du W3 de novembre", "Incluses parmi les documents reliés.", "FAQ", "Questions fréquentes", "Lire →", "Logiciels", "Produits logiciels", "Composants du projet", "Une liste des composants du projet W3 et de leur état actuel.", "Line Mode", "Composant", "Un des composants du projet.", "Viola", "X11", "Composant pour X11.", "NeXTStep", "Composant", "Un des composants du projet.", "Serveurs", "Composant", "Serveurs W3.", "Outils", "Tools", "Composant du projet.", "Courrier", "Mail robot", "Robot de courrier.", "Bibliothèque", "Library", "Voir l'état →", "Documentation", "Documentation", "Pour en savoir plus", "Détails techniques, références, participants et histoire du projet.", "Technique", "Protocoles et formats", "Détails des protocoles, des formats et du fonctionnement interne des programmes.", "Voir →", "Bibliographie", "Documentation papier", "Documentation papier sur le W3 et références.", "Voir →", "Personnes", "Qui a participé", "Une liste de quelques personnes impliquées dans le projet.", "Voir →", "Histoire", "Résumé", "Un résumé de l'histoire du projet.", "Lire →", "Le Web", "Parcourez le document", "Un document, de nombreux liens", "Cette fenêtre résume comment on naviguait entre les documents du W3. Le réseau 3D se construit en parallèle : faites-le pivoter et touchez ses points orange.", "Explorer", "Explorez le Web original", "Tout est connecté", "Chaque point orange du globe est une porte d'entrée laissée par le CERN sur info.cern.ch. Touchez-le ou ouvrez une carte.", "Répertoire", "Qu'y a-t-il là-dehors ?", "Explorer →", "Aide", "À propos de votre navigateur", "Voir l'aide →", "Logiciels", "Composants", "Voir l'état →", "Technique", "Protocoles et formats", "Voir les détails →", "Bibliothèque", "Bibliographie", "Voir →", "Personnes", "Qui a participé", "Voir la liste →", "Histoire", "Résumé du projet", "Lire →", "Aider", "Comment puis-je aider ?", "Si vous souhaitez soutenir le Web.", "Voir →", "Code", "Obtenir le logiciel", "Voir →", "Origine", "Retour à l'origine", "Un document, un réseau", "Tout commence dans un seul document. Ouvrez-le tel que le CERN l'a publié.", "Doc", "Document", "Tout sur le W3 est relié à un même document.", "W3", "Projet", "Initiative de recherche d'information hypermédia.", "→", "Origine", "Ouvrir l'original →"], "de": ["Start", "info.cern.ch · CERN", "World Wide Web", "Ein einziges Dokument, von dem aus alles verlinkt war, was es online über das Projekt WorldWideWeb (W3) gab. Scrollen Sie, um es zu durchlaufen.", "Rundgang starten", "Projekt", "Das Projekt", "Eine Hypermedia-Initiative", "Das WorldWideWeb (W3) ist eine weiträumige Hypermedia-Initiative zur Informationsbeschaffung, die einen universellen Zugang zu einem großen Universum von Dokumenten bieten soll.", "W3", "WorldWideWeb", "So heißt das Projekt.", "Hypermedia", "Informationsbeschaffung", "Eine Hypermedia-Initiative zur Informationsbeschaffung.", "Weiter Raum", "Wide-area", "Die Reichweite der Initiative.", "Universell", "Zugang zu Dokumenten", "Universellen Zugang zu einem großen Universum von Dokumenten bieten.", "Verlinkt", "Das zentrale Dokument", "Alles ist verlinkt", "Alles, was es online über W3 gibt, ist direkt oder indirekt mit diesem Dokument verlinkt.", "Zusammenfassung", "Management Summary", "Lesen →", "Mail", "Mailinglisten", "Ansehen →", "Richtlinien", "Regeln", "Ansehen →", "Neuigkeiten", "W3-Neuigkeiten vom November", "Unter den verlinkten Dokumenten enthalten.", "FAQ", "Häufig gestellte Fragen", "Lesen →", "Software", "Softwareprodukte", "Komponenten des Projekts", "Eine Liste der Komponenten des W3-Projekts und ihres aktuellen Stands.", "Line Mode", "Komponente", "Eine der Komponenten des Projekts.", "Viola", "X11", "Komponente für X11.", "NeXTStep", "Komponente", "Eine der Komponenten des Projekts.", "Server", "Komponente", "W3-Server.", "Werkzeuge", "Tools", "Komponente des Projekts.", "Mail", "Mail robot", "Mail-Roboter.", "Bibliothek", "Library", "Status ansehen →", "Dokumentation", "Dokumentation", "Mehr erfahren", "Technische Details, Referenzen, Beteiligte und die Geschichte des Projekts.", "Technik", "Protokolle und Formate", "Details zu Protokollen, Formaten und zur Funktionsweise der Programme.", "Ansehen →", "Bibliografie", "Gedruckte Dokumentation", "Gedruckte Dokumentation zu W3 und Referenzen.", "Ansehen →", "Personen", "Wer beteiligt war", "Eine Liste einiger am Projekt beteiligter Personen.", "Ansehen →", "Geschichte", "Überblick", "Ein Überblick über die Geschichte des Projekts.", "Lesen →", "Das Web", "Das Dokument durchstöbern", "Ein Dokument, viele Links", "Dieses Fenster fasst zusammen, wie man zwischen den W3-Dokumenten navigierte. Das 3D-Netz entsteht dabei: Ziehen Sie daran und tippen Sie auf die orangefarbenen Punkte.", "Erkunden", "Das ursprüngliche Web erkunden", "Alles ist verbunden", "Jeder orangefarbene Punkt auf dem Globus ist ein Eingang, den das CERN auf info.cern.ch hinterlassen hat. Tippen Sie darauf oder öffnen Sie eine Karte.", "Verzeichnis", "Was gibt es da draußen?", "Erkunden →", "Hilfe", "Über Ihren Browser", "Hilfe ansehen →", "Software", "Komponenten", "Status ansehen →", "Technik", "Protokolle und Formate", "Details ansehen →", "Bibliothek", "Bibliografie", "Ansehen →", "Personen", "Wer beteiligt war", "Liste ansehen →", "Geschichte", "Projektüberblick", "Lesen →", "Helfen", "Wie kann ich helfen?", "Wenn Sie das Web unterstützen möchten.", "Ansehen →", "Code", "Software herunterladen", "Ansehen →", "Ursprung", "Zurück zum Ursprung", "Ein Dokument, ein Netz", "Alles beginnt in einem einzigen Dokument. Öffnen Sie es so, wie das CERN es veröffentlicht hat.", "Doc", "Dokument", "Alles zu W3 ist mit demselben Dokument verlinkt.", "W3", "Projekt", "Hypermedia-Initiative zur Informationsbeschaffung.", "→", "Ursprung", "Das Original öffnen →"]};
+const chl=(l,q)=>[q[0],typeof q[1]==='number'?XL[l][q[1]]:q[1]];
+function trs(sec,L,l){let i=0;const nx=()=>L[i++];return sec.map(s=>{const o={...s};if(L){o.k=nx();o.e=nx();o.h=nx();o.p=nx();if(s.b)o.b=[nx(),s.b[1]]}if(s.n)o.n=s.n.map(n=>{let a=n[0],b=n[1],c=n[2];if(L){a=nx();b=nx();const m=/^(.*?)(<a [^>]*>)(.*)(<\/a>)$/.exec(n[2]);if(m){const t=m[1].trim()?nx():'';c=(t?t+' ':'')+m[2]+nx()+m[4]}else c=nx()}return n[3]?[a,b,c,n[3].map(q=>chl(l,q))]:[a,b,c]});return o})}
+const SEL={};LGS.forEach(l=>{SEL[l]=trs(SES,l==='es'?null:TXT[l],l)});
+function setL(l){const x=XL[l],P="hypertext/WWW/TheProject.html";IN[l]={h:x[2],p:x.slice(3,6),pt:IN.es.pt};UI[l]={nav:[["#s1",x[6]],["#s2",x[7]],["#s4",x[8]],["#s5",x[9]],["#s6",x[10]]],sim:"",sc:x[11],fh:x[12],ft:x.slice(13,19),note:x[19],top:x[20],en:UI.es.en,tk:UI.es.tk,nl:[...x.slice(44,52),x[56],x[52]],gs:x[42],skip:x[43],cr:x[53]+' · '+x[54]+' Yeiner Vindas Hernández',title:x[0],desc:x[1],ph:x[35],nr:x[36],hint:x[37],ts:x[38],tc:x[39],tl:x[40],sa:x[41],la:x[55],sug:x[67]};BLB.splice(0,3,x[21],x[22],x[23]);
+TLP[l]={pP:[P,x[24],x[25]+' {pL|'+x[26]+'}'],pL:[P,x[27],x[28]+' '+LK(W+"Summary.html",x[29])+' {pS|'+x[30]+'}'],pS:[P,x[31],x[32]+' '+LK(W+"History.html",x[33])+' {pP|'+x[34]+'}']}}
+
+const M=document.getElementById('main');
+function build(){setL(lang);SEC=SEL[lang];const u=UI[lang];document.documentElement.lang=lang;document.title=u.title;document.querySelector('meta[name=description]').content=u.desc;const sk=document.querySelector('.sk');if(sk)sk.textContent=u.skip;M.innerHTML='';
+SEC.forEach((s,i)=>{const e=document.createElement('section');e.id='s'+i;
+if(s.hero){e.className='hs';e.innerHTML=`<div class="hw"><div class="orb" id="orb"><b></b><i style="--a:0deg"></i><i style="--a:60deg"></i><i style="--a:120deg"></i></div><div class="ey">${s.e}</div><h1>${s.h.replace(/World Wide Web/g,'<b>W</b>orld <b>W</b>ide <b>W</b>eb')}</h1><p>${s.p}</p><div class="sum"><h2>${IN[lang].h}</h2><ul>${IN[lang].p.map(x=>`<li>${x}</li>`).join('')}</ul></div><a class="go" href="${s.b[1]}">${s.b[0]}</a><a class="go go2" href="#s5">${SKIP[lang]}</a><div class="scue">${u.sc}</div></div>`}
+else e.innerHTML=`<div class="col"><div class="ey">${s.e}</div><h2>${s.h}</h2><p>${s.p}</p>${s.btn?`<button class="go" id="fire">${u.sim}</button><label class="en"><span id="enl"></span><input type="range" id="en" min="0.9" max="13.6" step="0.1" value="${EN}"></label>`:''}${s.n?'<div class="nds">'+s.n.map(n=>`<div class="nd"><div class="hd"><span class="at"><i></i><i class="o2"></i></span><div><b>${n[0]}</b><span>${n[1]}</span></div></div><p>${n[2]}${n[3]?'<span class="ch">'+n[3].map(q=>`<a class="chip" href="${q[0]}" target="_blank" rel="noopener">${q[1]}</a>`).join('')+'</span>':''}</p></div>`).join('')+'</div>':''}${s.tl?`<div class="br"><div class="bb"><button data-a="b" aria-label="Atrás">‹</button><button data-a="f" aria-label="Adelante">›</button><span class="bu"></span></div><div class="ty">${BY.map((y,j)=>`<button data-p="${y}">${BLB[j]}</button>`).join('')}</div><div class="bp"></div></div>`:''}</div>`;
+if(PI[i]!==undefined)e.insertAdjacentHTML('afterbegin',`<div class="part"><span>${RN[PI[i]]}</span><b>${IN[lang].pt[PI[i]]}</b></div>`);M.appendChild(e)});
+document.querySelectorAll('#main .tl').forEach(tl=>{const T=SEC[+tl.closest('section').id.slice(1)].tl,d=tl.querySelector('.td');tl.querySelector('.ty').onclick=e=>{const b=e.target.closest('button');if(!b)return;tl.querySelectorAll('.ty button').forEach(x=>x.classList.toggle('on',x===b));const t=T[+b.dataset.j];d.innerHTML=`<b>${t[1]}</b><p>${t[2]}</p>`;d.style.animation='none';d.offsetWidth;d.style.animation=''}});
+document.querySelectorAll('.nds').forEach(g=>g.addEventListener('click',e=>{if(e.target.closest('a'))return;const b=e.target.closest('.nd');if(!b)return;const o=b.classList.contains('open'),at=b.querySelector('.at');at.classList.add('pop');setTimeout(()=>at.classList.remove('pop'),600);g.querySelectorAll('.nd').forEach(x=>{x.classList.remove('open');0});if(!o){b.classList.add('open');0}}));
+const f=document.getElementById('fire');if(f)f.onclick=()=>fire();
+const sl=document.getElementById('en');if(sl){const ud=()=>{document.getElementById('enl').textContent=`${u.en}: ${EN.toFixed(1)} TeV · ${enN()} ${u.tk}`};sl.oninput=()=>{EN=+sl.value;ud()};ud()}
+document.querySelectorAll('.br').forEach(br=>{const P=TLP[lang],B=br.querySelector('.bp'),ur=br.querySelector('.bu'),bk=br.querySelector('[data-a=b]'),fw=br.querySelector('[data-a=f]');let h=['pP'],i=0;
+const show=()=>{const p=P[h[i]];ur.textContent='http://info.cern.ch/'+p[0];B.innerHTML=`<h3>${p[1]}</h3>`+p[2].replace(/\{(\w+)\|([^}]+)\}/g,(m,id,t)=>`<a href="#" data-p="${id}">${t}</a>`);B.style.animation='none';B.offsetWidth;B.style.animation='';bk.disabled=!i;fw.disabled=i>=h.length-1;br.querySelectorAll('.ty button').forEach(x=>x.classList.toggle('on',x.dataset.p===h[i]))};
+br.onclick=e=>{if(e.target.closest("a[data-p]"))e.preventDefault();const l=e.target.closest('[data-p]'),a=e.target.closest('[data-a]');if(l){if(h[i]!==l.dataset.p){h=h.slice(0,i+1);h.push(l.dataset.p);i++}}else if(a){if(a.dataset.a==='b'&&i)i--;else if(a.dataset.a==='f'&&i<h.length-1)i++}else return;show()};show()});
+const ob=document.getElementById('orb');if(ob)ob.onclick=()=>{ob.classList.add('pop');setTimeout(()=>ob.classList.remove('pop'),900)};
+document.querySelector('nav .lk').innerHTML=u.nav.map(n=>`<a href="${n[0]}">${n[1]}</a>`).join('');document.getElementById('mm').innerHTML=u.nav.map(n=>`<a href="${n[0]}">${n[1]}</a>`).join('');document.getElementById('mb').setAttribute('aria-label',FX[lang].nv);
+document.querySelectorAll('.lg button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
+{const fx=FX[lang],nv=[['#s0',fx.home],u.nav[0],u.nav[u.nav.length-1]];document.getElementById('ft').innerHTML=`<div class="fg"><div class="fb"><b><i>W</i>orld <i>W</i>ide <i>W</i>eb</b><p>${u.note}</p></div><div class="fc"><h3>${fx.nv}</h3>${nv.map(n=>`<a href="${n[0]}">${n[1]}</a>`).join('')}</div><div class="fc fr"><h3>${fx.rs}</h3>${u.ft.map((t,i)=>`<a href="${FU[i]}" target="_blank" rel="noopener">${t}</a>`).join('')}</div></div><div class="fcr">${u.cr}</div>`}
+document.getElementById('dots').innerHTML=SEC.map((x,i)=>`<a href="#s${i}" aria-label="${x.k}"><span>${x.k}</span></a>`).join('');{const ub=document.getElementById('up');ub.setAttribute('aria-label',u.top);ub.innerHTML='<span aria-hidden="true">↑</span> '+u.top}const ex=document.getElementById('s6');if(ex)ex.insertAdjacentHTML('beforeend','<div class="gs" aria-hidden="true"><span>'+u.gs+'</span></div>');document.querySelectorAll('#s6 .nd').forEach((c,i)=>{c.style.setProperty('--acc',ACCS[i%4]);c.onpointerenter=()=>{HC=i+1};c.onpointerleave=()=>{HC=-1}});window.navUI&&navUI();window.relabel&&relabel();window.rt&&rt()}
+const tops=()=>[...M.children].map(s=>s.offsetTop);
+const ACC=[[.18,.55,1],[1,.24,.2],[.78,.88,1],[1,.59,.18]],ACCS=["45,140,255","255,60,50","200,225,255","255,150,45"];let HC=-1,HV=-1,HS=-1,PIN=null,LH=-2;
+let mx=0,my=0,tx=0,ty=0,fire=()=>{},EN=13.6;const enN=()=>Math.round(10+100*Math.sqrt(EN/13.6));
+const UP=document.getElementById('up');UP.onclick=()=>scrollTo(0,0);addEventListener('scroll',()=>UP.classList.toggle('on',scrollY>innerHeight*1.2),{passive:true});
+addEventListener('pointermove',e=>{tx=e.clientX/innerWidth*2-1;ty=-(e.clientY/innerHeight*2-1);const r=document.documentElement.style;r.setProperty('--rx',-ty*16+'deg');r.setProperty('--ry',tx*16+'deg')},{passive:true});
+document.addEventListener('click',e=>{if(e.target.closest('#fire')){document.body.classList.add('v3');setTimeout(()=>document.body.classList.remove('v3'),4500)}});build();document.querySelectorAll('.lg button').forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem('l',lang)}catch(e){}build()});
+
+(function(){const $=id=>document.getElementById(id),sr=$('sr'),si=$('si'),sb=$('sb'),sg=$('sg'),rs=$('rs'),lm=$('lm'),lb=$('lb'),ll=$('ll'),lc=$('lc');
+const NM={es:'Español',en:'English',pt:'Português',fr:'Français',de:'Deutsch'},nrm=t=>t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(),esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+let IDX=[],VOC=[],res=[],cur=0,comp='';
+function mk(){IDX=[];IN[lang].p.forEach(t=>IDX.push({t:'c',i:0,j:-1,node:0,title:IN[lang].h,sub:SEC[0].k,txt:t}));SEC.forEach((s,i)=>{IDX.push({t:'s',i,j:-1,node:0,title:s.h,sub:s.e,txt:s.p});(s.n||[]).forEach((n,j)=>IDX.push({t:/href='/.test(n[2])||n[3]?'l':'c',i,j,node:i===6?j+1:0,title:n[0]+' · '+n[1],sub:s.k,txt:(n[2].replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()+' '+(n[3]||[]).map(q=>q[1]).join(' ')).trim()}))});
+const seen=new Map();IDX.forEach(e=>(e.title+' '+e.sub).split(/[\s·,.;:()¿?¡!→↗\/-]+/).forEach(w=>{const n=nrm(w);if(n.length>=3&&w.length===n.length&&!seen.has(n))seen.set(n,w.toLowerCase())}));VOC=[...seen].map(([n,w])=>({n,w})).sort((a,b)=>a.n.length-b.n.length||a.n.localeCompare(b.n))}
+function find(q){const tk=nrm(q).split(/\s+/).filter(Boolean);if(!tk.length)return[];return IDX.map(e=>{const T=nrm(e.title),S=nrm(e.sub),X=nrm(e.txt);let sc=0;for(const w of tk){let v=0;if(T.includes(w))v+=T.startsWith(w)?6:T.split(/[\s·]+/).some(x=>x.startsWith(w))?4.5:3;if(S.includes(w))v+=1.5;if(X.includes(w))v+=1;if(!v)return null;sc+=v}return{e,sc:sc+(e.t==='s'?.5:0)}}).filter(Boolean).sort((a,b)=>b.sc-a.sc).slice(0,8).map(x=>x.e)}
+function hl(t,tk){const n=nrm(t);if(n.length!==t.length||!tk.length)return esc(t);const m=new Array(t.length).fill(0);tk.forEach(w=>{let p=n.indexOf(w);while(p>-1){for(let k=p;k<p+w.length;k++)m[k]=1;p=n.indexOf(w,p+w.length)}});let o='',on=0;for(let k=0;k<t.length;k++){if(m[k]&&!on){o+='<mark>';on=1}if(!m[k]&&on){o+='</mark>';on=0}o+=esc(t[k])}return o+(on?'</mark>':'')}
+function snip(e,tk){const n=nrm(e.txt);let p=-1;for(const w of tk){const q=n.indexOf(w);if(q>-1&&(p<0||q<p))p=q}const a=Math.max(0,p-26),t=e.txt.slice(a,a+100);return(a?'…':'')+hl(t,tk)+(a+100<e.txt.length?'…':'')}
+const dot=e=>e.node?`<span class="rd" style="--c:rgb(${ACCS[(e.node-1)%4]})"></span>`:'';
+function item(e,k,tk){const u=UI[lang];return`<button type="button" class="ri${k?'':' on'}" role="option" data-k="${k}"><span class="rt t${e.t}">${dot(e)}${e.t==='s'?u.ts:e.t==='l'?u.tl:u.tc}</span><b>${hl(e.title,tk)}</b><i>${snip(e,tk)}</i></button>`}
+function ghost(){comp='';const v=si.value;if(v&&!/\s$/.test(v)){const tok=v.split(/\s+/).pop(),nt=nrm(tok);if(nt.length>=2&&tok.length===nt.length){const m=VOC.find(x=>x.n.length>nt.length&&x.n.startsWith(nt));if(m)comp=m.w.slice(tok.length)}}sg.innerHTML=comp?`<i>${esc(v)}</i>${esc(comp)}`:''}
+function pre(){const e=res[cur];HS=sync.on&&e&&e.node?e.node:-1}
+function render(){const u=UI[lang],q=si.value.trim(),tk=nrm(q).split(/\s+/).filter(Boolean);
+if(q){res=find(q);rs.innerHTML=res.length?res.map((e,k)=>item(e,k,tk)).join('')+`<div class="rh">${u.hint}</div>`:`<div class="rn">${u.nr}</div>`}
+else{res=IDX.filter(e=>e.i===6&&[0,2,3,5,6].includes(e.j));rs.innerHTML=`<div class="rg">${u.sug}</div>`+res.map((e,k)=>item(e,k,[])).join('')+`<div class="rh">${u.hint}</div>`}
+cur=0;ghost();sync();pre()}
+function sync(){const on=sr.classList.contains('open')&&(si.value.trim()!==''||document.activeElement===si);sync.on=on;rs.classList.toggle('on',on);si.setAttribute('aria-expanded',on);if(!on)HS=-1}
+function open(){sr.classList.add('open');lm.classList.remove('open');si.focus()}
+function close(clear){if(clear)si.value='';ghost();si.blur();if(!si.value.trim())sr.classList.remove('open');sync()}
+function pick(k){[...rs.querySelectorAll('.ri')].forEach((b,i)=>b.classList.toggle('on',i===k));const b=rs.querySelectorAll('.ri')[k];b&&b.scrollIntoView({block:'nearest'});pre()}
+function go(e){close(true);sr.classList.remove('open');HS=-1;if(e.node)PIN={i:e.node,until:performance.now()+3400};
+if(e.t==='c'&&e.j<0||e.i===0&&e.t==='s'){scrollTo({top:0,behavior:'smooth'});return}
+const sec=document.getElementById('s'+e.i);if(e.t==='s'){const h=sec.querySelector('h2')||sec;scrollTo({top:h.getBoundingClientRect().top+scrollY-innerHeight*.28,behavior:'smooth'});return}
+const el=sec.querySelectorAll('.nd')[e.j];if(!el)return;scrollTo({top:el.getBoundingClientRect().top+scrollY-innerHeight*.38,behavior:'smooth'});
+setTimeout(()=>{el.parentNode.querySelectorAll('.nd').forEach(x=>x.classList.remove('open'));el.classList.add('open','hl');setTimeout(()=>el.classList.remove('hl'),1900)},650)}
+function accept(){if(!comp)return false;si.value+=comp;render();return true}
+sb.onclick=()=>sr.classList.contains('open')&&!si.value&&document.activeElement!==si?close():open();
+si.addEventListener('input',render);si.addEventListener('focus',()=>{sr.classList.add('open');render()});si.addEventListener('blur',()=>setTimeout(()=>{if(!si.value.trim())sr.classList.remove('open');sync()},150));
+si.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();if(res.length){cur=(cur+(e.key==='ArrowDown'?1:res.length-1))%res.length;pick(cur)}}
+else if(e.key==='Tab'&&comp){e.preventDefault();accept()}else if(e.key==='ArrowRight'&&comp&&si.selectionStart===si.value.length){e.preventDefault();accept()}
+else if(e.key==='Enter'){e.preventDefault();if(res[cur])go(res[cur])}else if(e.key==='Escape'){e.preventDefault();si.value?(si.value='',render()):close()}});
+rs.addEventListener('mousedown',e=>e.preventDefault());rs.addEventListener('click',e=>{const b=e.target.closest('.ri');if(b)go(res[+b.dataset.k])});
+rs.addEventListener('mousemove',e=>{const b=e.target.closest('.ri');if(b&&+b.dataset.k!==cur){cur=+b.dataset.k;pick(cur)}});
+document.addEventListener('click',e=>{if(!sr.contains(e.target)&&!rs.contains(e.target)){if(!si.value.trim())sr.classList.remove('open');sync()}if(!lm.contains(e.target)){lm.classList.remove('open');lb.setAttribute('aria-expanded','false')}});
+document.addEventListener('keydown',e=>{const t=e.target,ty=t&&t.closest&&t.closest('input,textarea,select');if(((e.key==='/'&&!ty)||((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'))&&!e.altKey){e.preventDefault();open()}else if(e.key==='Escape')lm.classList.remove('open')});
+lb.onclick=()=>{const o=!lm.classList.contains('open');lm.classList.toggle('open',o);lb.setAttribute('aria-expanded',o);if(o){if(!si.value.trim())sr.classList.remove('open');sync()}};
+ll.innerHTML=LGS.map(l=>`<li><button type="button" data-l="${l}"><span class="lw">${NM[l]}</span><span>${l.toUpperCase()}</span></button></li>`).join('');
+ll.onclick=e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;try{localStorage.setItem('l',lang)}catch(x){}lm.classList.remove('open');build()};
+window.navUI=function(){const u=UI[lang];si.placeholder=u.ph;si.setAttribute('aria-label',u.sa);sb.setAttribute('aria-label',u.sa);lc.textContent=lang.toUpperCase();lb.setAttribute('aria-label',u.la);ll.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));mk();if(document.activeElement===si)render()};
+navUI()})();
+
+try{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,C={blue:0x6fb7e8,org:0xf08a24,bg:[.027,.035,.05]};
+const cv=document.getElementById('gl'),ren=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true}),S=new THREE.Scene(),cam=new THREE.PerspectiveCamera(38,1,.1,400);
+ren.setPixelRatio(Math.min(devicePixelRatio,2));
+function rs(){const o=document.body.classList.contains('out'),W=innerWidth,H=innerHeight;ren.setSize(W,H,false);cam.aspect=W/H;if(W>900)cam.setViewOffset(W,H,window.OX||0,0,W,H);else cam.setViewOffset(W,H,0,H*(W<700?0:.1),W,H);cam.updateProjectionMatrix()}
+addEventListener('resize',rs);rs();
+const ss=(a,b,x)=>{x=Math.min(Math.max((x-a)/(b-a),0),1);return x*x*(3-2*x)};
+let TP=tops();addEventListener('resize',()=>TP=tops());addEventListener('load',()=>TP=tops());window.rt=()=>{TP=tops();lay&&lay()};
+const spr=(()=>{const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d'),r=x.createRadialGradient(32,32,0,32,32,32);r.addColorStop(0,'#fff');r.addColorStop(.35,'rgba(255,255,255,.85)');r.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=r;x.fillRect(0,0,64,64);return new THREE.CanvasTexture(c)})();
+const lmat=o=>new THREE.LineBasicMaterial({color:C.blue,transparent:true,opacity:o});
+const pmat=(o)=>new THREE.PointsMaterial(Object.assign({map:spr,transparent:true,depthWrite:false},o));
+const BA=(a)=>new THREE.BufferAttribute(a,3);
+/* 0 · cielo estrellado */
+const NS0=innerWidth<700?520:1100,sp0=new Float32Array(NS0*3),sb0=new Float32Array(NS0*3),sc0=new Float32Array(NS0*3),ph0=new Float32Array(NS0);
+for(let i=0;i<NS0;i++){sp0.set([(Math.random()-.5)*340,(Math.random()-.5)*380,-30-Math.random()*70],i*3);ph0[i]=Math.random()*6.28;const b=.3+Math.random()*.7,t=Math.random();sb0.set([b*(.72+.28*t),b*(.84+.16*t),b],i*3)}
+const sg0=new THREE.BufferGeometry();sg0.setAttribute('position',BA(sp0));sg0.setAttribute('color',BA(sc0));
+const STAR=new THREE.Points(sg0,new THREE.PointsMaterial({size:1.9*Math.min(devicePixelRatio,2),sizeAttenuation:false,vertexColors:true,map:spr,transparent:true,depthWrite:false}));STAR.frustumCulled=false;S.add(STAR);
+const NK=innerWidth<700?14:26,kp=new Float32Array(NK*3);for(let i=0;i<NK;i++)kp.set([(Math.random()-.5)*230,(Math.random()-.5)*260,-25-Math.random()*40],i*3);
+const kg=new THREE.BufferGeometry();kg.setAttribute('position',BA(kp));const BK=new THREE.Points(kg,pmat({color:0x2d8cff,size:4.2,opacity:.3,blending:THREE.AdditiveBlending}));BK.frustumCulled=false;S.add(BK);
+/* 1 · acelerador */
+const Rx=22,Ry=13,Nt=200,VM=15,BASE=[[.44,.72,.91],[.94,.54,.14]];
+const ell=k=>{const p=[];for(let i=0;i<160;i++){const a=i/160*6.2832;p.push(new THREE.Vector3(Math.cos(a)*Rx*k,Math.sin(a)*Ry*k,0))}return new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(p),lmat(.5))};
+const tk=[];for(let i=0;i<72;i++){const a=i/72*6.2832,c=Math.cos(a),n=Math.sin(a);tk.push(new THREE.Vector3(c*Rx*1.09,n*Ry*1.09,0),new THREE.Vector3(c*Rx*1.14,n*Ry*1.14,0))}
+const ring=new THREE.Group();ring.add(ell(1),ell(1.06),new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(tk),lmat(.3)));S.add(ring);{const n=360,a=new Float32Array(n*3);for(let i=0;i<n;i++){const t=i/n*6.2832;a.set([Math.cos(t)*Rx*1.03,Math.sin(t)*Ry*1.03,0],i*3)}const g=new THREE.BufferGeometry();g.setAttribute('position',BA(a));ring.add(new THREE.Points(g,pmat({color:0x6fb7e8,size:.55,opacity:.7,blending:THREE.AdditiveBlending})));ring.children.forEach(r=>r.material.blending=THREE.AdditiveBlending)}
+/* 2 · dos partículas: salen por abajo, chocan en cada sección y siguen hacia abajo */
+let HWd=[30,18],U=.04,CK=[],DFIN=300,GSY=0,GS=0,ZC=0,NF=-1;
+const PH=[[.5,1.7,.9,2.3],[.2,2.3,1.9,1.1]],SEED=[.62,.4,.78,.5,.68,.45,.8,.55],NS=30,COLs=[0,1,2,3].map(()=>({on:undefined,t0:-99})),SA=[],SP=[];let SG=0;
+for(let i=0;i<NS;i++){SA.push(Math.random()*6.2832);SP.push(2+Math.random()*4.5)}
+function lay(){const z=Math.max(52,(innerWidth<700?80:70)/cam.aspect),hh=Math.tan(.3316)*z,ih=innerHeight;HWd=[hh*cam.aspect,hh];U=2*hh/ih;const yc=ih*(innerWidth>900?.5:innerWidth<700?.5:.4),PEX=yc+Ry/U,Yh=(yc-ih*.55)*U;
+CK=[1,2,3,4].map(i=>{const h=M.children[i]&&M.children[i].querySelector('h2'),A=h?h.getBoundingClientRect().top+scrollY+h.offsetHeight/2:TP[i]+ih*.3;return(A-PEX)*U});
+DFIN=Math.max(ih*.5,TP[5]-ih*.55)*U-Ry-Yh+2.5;const gE=document.querySelector('.gs');GSY=gE&&gE.offsetHeight?gE.getBoundingClientRect().top+scrollY+gE.offsetHeight/2:0}
+function F(b,v,t,o,i,sc){const sb=b?-1:1;let x,y,z;SG=0;
+if(v<=0){const a=-Math.PI/2+sb*v;x=Math.cos(a)*Rx;y=Math.sin(a)*Ry+sc;z=0}
+else{const W=HWd[0],d=v,r=ss(0,25,d);let j=0;while(j<CK.length&&CK[j]<=d)j++;SG=j+1;
+const B0=j?CK[j-1]:0,B1=j<CK.length?CK[j]:DFIN,u=Math.min(Math.max((d-B0)/Math.max(B1-B0,1),0),1),sg=(j&1?-1:1)*sb,sn=Math.sin(Math.PI*u);
+const m=W*.3*ss(0,40,d)*(.6*Math.sin(d*.085+.8)+.4*Math.sin(d*.21+2))*(1-ss(DFIN-50,DFIN,d));
+x=m+sg*SEED[j%8]*W*.9*(1+.22*Math.sin(j*2.3+b*3))*sn+W*.07*sn*Math.sin(6.3*u+PH[b][0]+j*1.7)+r*.4*Math.sin(t*1.1+d*.2+b);
+x=W*.93*Math.tanh(x/(W*.93));
+y=-Ry-d+2.5*(1-Math.exp(-d/2.5))+sc;z=r*6*sn*Math.sin(PH[b][1]*j+b*2)}
+o[i]=x;o[i+1]=y;o[i+2]=z}
+const st=[0,1].map(b=>({ph:Math.random()*6.2832,n:0,w:.85+.25*b,v:0}));
+const tr=[0,1].map(b=>{const pos=new Float32Array(Nt*6),col=new Float32Array(Nt*6),idx=[];
+for(let j=0;j<Nt-1;j++){const a=j*2;idx.push(a,a+1,a+2,a+1,a+3,a+2)}
+const g=new THREE.BufferGeometry();g.setAttribute('position',BA(pos));g.setAttribute('color',BA(col));g.setIndex(idx);
+const L=new THREE.Mesh(g,new THREE.MeshBasicMaterial({vertexColors:true,side:THREE.DoubleSide}));L.frustumCulled=false;S.add(L);return{pos,col,g,L,tmp:new Float32Array(Nt*3),sg:new Uint8Array(Nt)}});
+const MOB=innerWidth<700,NR=MOB?70:120,LIFE=2.2,DN=MOB?700:1500;let SHK=0,finOn,Dptr=0;
+const PAL=[[1,.82,.24],[.94,.54,.14],[1,.29,.11],[.44,.72,.91],[1,.95,.8]];
+const BS=[0,1,2,3,4].map(k=>{const rp=new Float32Array(NR*6),rc=new Float32Array(NR*6),rg=new THREE.BufferGeometry();rg.setAttribute('position',BA(rp));rg.setAttribute('color',BA(rc));
+const rays=new THREE.LineSegments(rg,new THREE.LineBasicMaterial({vertexColors:true,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));rays.frustumCulled=false;rays.visible=false;S.add(rays);
+const dirs=[],RR=[],LL=[],ci=[];for(let i=0;i<NR;i++){const z=Math.random()*2-1,a=Math.random()*6.2832,r=Math.sqrt(1-z*z);dirs.push([Math.cos(a)*r,Math.sin(a)*r,z*.8]);RR.push(5+Math.random()*(k===4?20:12));LL.push(1.5+Math.random()*(k===4?10:7));ci.push(Math.random()*5|0)}
+const fp=new THREE.Points(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3()]),pmat({size:20,color:0xffffff,opacity:0,blending:THREE.AdditiveBlending}));fp.visible=false;fp.frustumCulled=false;S.add(fp);
+const rg2=new THREE.Mesh(new THREE.RingGeometry(.96,1,64),new THREE.MeshBasicMaterial({color:0xffb347,transparent:true,opacity:0,side:THREE.DoubleSide,blending:THREE.AdditiveBlending,depthWrite:false}));rg2.visible=false;S.add(rg2);
+return{rp,rc,rg,rays,dirs,RR,LL,ci,fp,rg2,t0:-99,c:[0,0,0],big:k===4}});
+const Dp=new Float32Array(DN*3),Dc=new Float32Array(DN*3),Dv=new Float32Array(DN*3),Db=new Float32Array(DN*3),DT=new Float32Array(DN).fill(-999),DPa=new Float32Array(DN),DCi=new Uint8Array(DN),Dg=new THREE.BufferGeometry();
+Dg.setAttribute('position',BA(Dp));Dg.setAttribute('color',BA(Dc));
+const DEB=new THREE.Points(Dg,pmat({size:MOB?.75:.65,vertexColors:true,blending:THREE.AdditiveBlending}));DEB.frustumCulled=false;S.add(DEB);
+function boom(k,cx,cy,cz,pa,n,spd,sc,t){const s=BS[k];s.t0=t;s.c=[cx,cy,cz];SHK=Math.max(SHK,(s.big?1.6:.9)*(MOB?.6:1));
+for(let i=0;i<n;i++){const ix=Dptr++%DN,q=ix*3,a=Math.random()*6.2832,sp=spd*(.25+Math.random()*.9);Db[q]=cx;Db[q+1]=cy-sc*pa;Db[q+2]=cz;Dv[q]=Math.cos(a)*sp*1.9;Dv[q+1]=Math.sin(a)*sp;Dv[q+2]=(Math.random()-.5)*sp*.5;DT[ix]=t;DPa[ix]=pa;DCi[ix]=Math.random()*5|0}}
+const hp=new Float32Array(6),hg=new THREE.BufferGeometry();hg.setAttribute('position',BA(hp));hg.setAttribute('color',BA(new Float32Array(BASE[0].concat(BASE[1]))));
+const h1=new THREE.Points(hg,pmat({size:1.7,color:0xffffff})),h2=new THREE.Points(hg,pmat({size:11,vertexColors:true,opacity:.55}));h1.frustumCulled=h2.frustumCulled=false;S.add(h1,h2);
+/* 3 · choque, explosión y átomo */
+const fl=new THREE.Points(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3()]),pmat({size:16,color:0xffffff,opacity:0}));S.add(fl);
+const NB=170,bd=[],bp=new Float32Array(NB*3),bc=new Float32Array(NB*3);
+for(let j=0;j<NB;j++){const z=Math.random()*2-1,a=Math.random()*6.2832,r=Math.sqrt(1-z*z);bd.push([Math.cos(a)*r,z,Math.sin(a)*r,.45+Math.random()*.55]);bc.set(j%3?BASE[j%2]:[1,1,1],j*3)}
+const bg2=new THREE.BufferGeometry();bg2.setAttribute('position',BA(bp));bg2.setAttribute('color',BA(bc));
+const bm=new THREE.Points(bg2,pmat({size:1.2,vertexColors:true}));bm.frustumCulled=false;S.add(bm);
+/* 4 · red interactiva alrededor del átomo */
+const g=new THREE.Group();S.add(g);
+const NN=innerWidth<700?44:70,P=[];
+for(let i=0;i<NN;i++){const y=1-2*(i+.5)/NN,r=Math.sqrt(1-y*y),a=i*2.39996;P.push(new THREE.Vector3(Math.cos(a)*r,y,Math.sin(a)*r).multiplyScalar(9))}
+P.sort((a,b)=>b.y-a.y);
+const E=[];for(let i=1;i<NN;i++)P.slice(0,i).map((v,j)=>[j,v.distanceTo(P[i])]).sort((a,b)=>a[1]-b[1]).slice(0,2).forEach(x=>E.push([x[0],i]));
+const lg=new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(E.reduce((o,e)=>(o.push(P[e[0]],P[e[1]]),o),[])),lmat(.4));
+const pg=new THREE.Points(new THREE.BufferGeometry().setFromPoints(P),pmat({color:C.blue,size:.7}));
+const mi=[];for(let k=1;k<=9;k++)mi.push(Math.floor((k-.5)*NN/9));
+const MP=[new THREE.Vector3()].concat(mi.map(i=>P[i]));
+const mp=new THREE.Points(new THREE.BufferGeometry().setFromPoints(MP),pmat({vertexColors:true,size:1.6}));{const mc=new Float32Array(MP.length*3);MP.forEach((_,i)=>mc.set(i?ACC[(i-1)%4]:[.94,.54,.14],i*3));mp.geometry.setAttribute('color',BA(mc))}
+const sk=new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(mi.reduce((o,i)=>(o.push(MP[0],P[i]),o),[])),new THREE.LineBasicMaterial({color:C.org,transparent:true,opacity:.35}));
+const hub=new THREE.Mesh(new THREE.SphereGeometry(.9,20,14),new THREE.MeshBasicMaterial({color:C.org}));
+const orbs=[[.3,0],[1.2,.5],[-.6,1.05]].map(r=>{const o=new THREE.Group(),p=[];for(let i=0;i<90;i++){const a=i/90*6.2832;p.push(new THREE.Vector3(Math.cos(a)*3.4,Math.sin(a)*3.4,0))}
+o.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(p),new THREE.LineBasicMaterial({color:C.org,transparent:true,opacity:.55})));o.rotation.set(r[0],r[1],0);
+const el=new THREE.Mesh(new THREE.SphereGeometry(.28,10,8),new THREE.MeshBasicMaterial({color:C.blue}));o.add(el);g.add(o);return el});
+g.add(lg,pg,sk,mp,hub);const NMT=[];g.traverse(o=>{if(o.material){o.material.transparent=true;NMT.push([o.material,o.material.opacity])}});const hlp=new THREE.Points(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3()]),pmat({size:5,color:0xffffff,opacity:0,blending:THREE.AdditiveBlending}));hlp.visible=false;hlp.frustumCulled=false;g.add(hlp);let hv=0;
+const NL=[["info.cern.ch",W+"TheProject.html"],["Directorio","http://info.cern.ch/hypertext/DataSources/Top.html"],["Ayuda",W+"Help.html"],["Software",W+"Status.html"],["Técnico",W+"Technical.html"],["Bibliografía",W+"Bibliography.html"],["Personas",W+"People.html"],["Historia",W+"History.html"],["Ayudar",W+"Helping.html"],["Código","http://info.cern.ch/hypertext/README.html"]];
+const LB=NL.map((n,i)=>{const a=document.createElement('a');a.className='nl';if(i)a.style.setProperty('--acc',ACCS[(i-1)%4]);a.href=n[1];a.target='_blank';a.rel='noopener';a.hreflang='en';a.tabIndex=-1;a.textContent=n[0]+' ↗';document.body.appendChild(a);return a});
+window.relabel=()=>LB.forEach((a,i)=>a.textContent=UI[lang].nl[i]+' ↗');relabel();
+const V3=new Float32Array(3),V=new THREE.Vector3(),rc=new THREE.Raycaster();rc.params.Points.threshold=1.4;
+let dg=0,dd=0,lx=0,dm=0,rmv=0,gsv=0,kv=0,th=0,ys=scrollY,last=performance.now();
+const hit=e=>{if(e.target!==cv||gsv<.9||(innerWidth<=900?GS<.6:(kv<5||kv>6)))return -1;const r=cv.getBoundingClientRect();rc.setFromCamera(new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-((e.clientY-r.top)/r.height*2-1)),cam);const h=rc.intersectObject(mp)[0];return h&&h.index<=rmv?h.index:-1};
+addEventListener('pointerdown',e=>{if(e.target===cv&&document.body.classList.contains('out')){dd=1;lx=e.clientX;dm=0}});
+addEventListener('pointerup',()=>dd=0);
+addEventListener('pointermove',e=>{if(dd){dg+=(e.clientX-lx)*.01;dm+=Math.abs(e.clientX-lx);lx=e.clientX}const hi=hit(e);cv.style.cursor=hi<0?'':'pointer';HV=hi>0?hi:-1},{passive:true});
+addEventListener('click',e=>{const i=hit(e);if(i<0||dm>6)return;window.open(NL[i][1],'_blank','noopener')});
+const bar=document.getElementById('bar');
+function loop(){requestAnimationFrame(loop);const now=performance.now(),dt=Math.min((now-last)/1000,.05);last=now;const t=RM?3:now/1000,y=scrollY,ih=innerHeight,T=TP;
+mx+=(tx-mx)*.05;my+=(ty-my)*.05;
+let k=0;while(k<T.length-1&&T[k+1]<=y+ih*.5)k++;kv=k;
+const o=k>=5&&k<=6;if(o!==document.body.classList.contains('out')){document.body.classList.toggle('out',o);rs()}
+cv.style.opacity=o||k===0?1:.6;
+ys+=(y-ys)*Math.min(1,dt*6);const qe=Math.max(ih*.5,T[5]-ih*.55),m=ss(ih*.05,ih*.9,ys),c=ss(qe,T[5]-ih*.05,ys),e=ss(T[5]-ih*.05,T[5]+ih*.5,ys);
+const sc=ys*U,yc=ih*(innerWidth>900?.5:innerWidth<700?.5:.4),Yh=(yc-ih*.55)*U,rl=ss(0,ih*.25,ys),SJ=Math.max(0,sc-Ry-Yh+2.5);st.forEach(q=>{if(!RM)q.ph+=q.w*(1-rl)*dt;if(rl<.001)q.n=Math.ceil(q.ph/6.2832);q.v=Math.min(q.ph-6.2832*q.n,0)*(1-rl)+SJ});ring.position.y=sc;STAR.position.y=sc*.12;BK.position.y=sc*.2;for(let i=0;i<NS0;i++){const k=.72+.28*Math.sin(t*1.3+ph0[i]);sc0[i*3]=sb0[i*3]*k;sc0[i*3+1]=sb0[i*3+1]*k;sc0[i*3+2]=sb0[i*3+2]*k}sg0.attributes.color.needsUpdate=true;
+const ox=innerWidth>900?-innerWidth*.25*c:0;if(innerWidth>900&&Math.abs(ox-(window.OX||0))>.5){window.OX=ox;cam.setViewOffset(innerWidth,innerHeight,ox,0,innerWidth,innerHeight)}
+const mob0=innerWidth<=900,zt=o&&mob0?Math.min(95,12/(.3443*cam.aspect)):Math.max(52,(innerWidth<700?80:70)/cam.aspect);if(!ZC)ZC=zt;ZC+=(zt-ZC)*Math.min(1,dt*3);GS=mob0&&GSY&&o?1-ss(.12,.5,Math.abs(GSY-y-ih*.5)/ih):0;
+cam.position.set(mx*2+Math.sin(t*.25)*1.2+(Math.random()-.5)*SHK,my*1.5+Math.cos(t*.2)*.8+(Math.random()-.5)*SHK,ZC);cam.lookAt(0,0,0);
+const live=c<.995;ring.visible=live&&m<.99;ring.children.forEach(r=>r.material.opacity=(r.type==='LineSegments'?.45:r.type==='Points'?.7:.85)*(1-m));
+h1.visible=h2.visible=live;
+const kc=1-c,hc=hg.attributes.color.array;tr.forEach((q,b)=>{q.L.visible=live;if(!live)return;const vh=st[b].v,len=2.4+46*ss(.5,14,vh),T3=q.tmp,pp=q.pos,cl=q.col;
+for(let j=0;j<Nt;j++){F(b,Math.max(vh-len*Math.pow(j/(Nt-1),1.4),-2.4),t,T3,j*3,sc);q.sg[j]=SG;T3[j*3]*=kc;T3[j*3+1]*=kc;T3[j*3+2]*=kc}
+for(let j=0;j<Nt;j++){const a=Math.max(j-1,0)*3,z=Math.min(j+1,Nt-1)*3,dx=T3[z]-T3[a],dy=T3[z+1]-T3[a+1],d=Math.hypot(dx,dy)||1,w=.26*Math.pow(1-j/(Nt-1),.9)*(.35+.65*kc),nx=-dy/d*w,ny=dx/d*w,p=j*3,i0=j*6,f=Math.pow(1-j/(Nt-1),1.7),B=BASE[(b+q.sg[j])&1];pp[i0]=T3[p]+nx;pp[i0+1]=T3[p+1]+ny;pp[i0+2]=T3[p+2];pp[i0+3]=T3[p]-nx;pp[i0+4]=T3[p+1]-ny;pp[i0+5]=T3[p+2];for(let i=0;i<3;i++)cl[i0+i]=cl[i0+3+i]=C.bg[i]+(B[i]-C.bg[i])*f}
+q.g.attributes.position.needsUpdate=q.g.attributes.color.needsUpdate=true;F(b,vh,t,hp,b*3,sc);const B2=BASE[(b+SG)&1];hc.set(B2,b*3);hp[b*3]*=kc;hp[b*3+1]*=kc;hp[b*3+2]*=kc});hg.attributes.color.needsUpdate=true;
+const vm=Math.min(st[0].v,st[1].v);
+CK.forEach((d,k)=>{const o=COLs[k],on=vm>=d;if(o.on===undefined)o.on=on;else if(on!==o.on){o.on=on;if(on&&live){F(0,d,t,V3,0,sc);boom(k,V3[0],V3[1],0,.9,MOB?120:220,16,sc,t)}}
+const se=M.children[k+1];if(se){se.setAttribute('data-rv','');se.classList.toggle('rv',on)}});
+const fo=e>.02;if(finOn===undefined)finOn=fo;else if(fo!==finOn){finOn=fo;if(fo)boom(4,0,0,0,0,MOB?340:620,26,sc,t)}
+SHK*=Math.exp(-dt*6);
+BS.forEach((s,k)=>{const age=t-s.t0,act=age>=0&&age<LIFE;s.rays.visible=act;if(!act){s.fp.visible=false;s.rg2.visible=false;return}
+if(k<4&&CK[k]!==undefined){F(0,CK[k],t,V3,0,sc);s.c[0]=V3[0];s.c[1]=V3[1]}
+const f=Math.pow(1-age/LIFE,1.2),cx=s.c[0],cy=s.c[1],cz=s.c[2],rp=s.rp,rc=s.rc;
+for(let i=0;i<NR;i++){const hd=s.RR[i]*(1-Math.exp(-age*3.4)),tl=Math.max(0,hd-s.LL[i]*(1-age/LIFE)),d=s.dirs[i],q=i*6,Q=PAL[s.ci[i]];
+rp[q]=cx+d[0]*tl;rp[q+1]=cy+d[1]*tl;rp[q+2]=cz+d[2]*tl;rp[q+3]=cx+d[0]*hd;rp[q+4]=cy+d[1]*hd;rp[q+5]=cz+d[2]*hd;
+rc[q]=f;rc[q+1]=f*.85;rc[q+2]=f*.5;rc[q+3]=Q[0]*f;rc[q+4]=Q[1]*f;rc[q+5]=Q[2]*f}
+s.rg.attributes.position.needsUpdate=s.rg.attributes.color.needsUpdate=true;
+s.fp.visible=age<.6;s.fp.position.set(cx,cy,cz);s.fp.material.size=(s.big?26:16)+age*70;s.fp.material.opacity=Math.max(0,1-age/.6);
+s.rg2.visible=age<1;s.rg2.position.set(cx,cy,cz);s.rg2.scale.setScalar(2+age*(s.big?44:30));s.rg2.material.opacity=.85*Math.max(0,1-age)});
+const fin=ss(T[5]-ih*.25,T[5]+ih*.1,ys);
+for(let i=0;i<DN;i++){const age=t-DT[i],q=i*3;if(age<0||age>55){Dp[q]=Dp[q+1]=9999;continue}
+const dr=Math.exp(-1.7*dt);Dv[q]=Dv[q]*dr+Math.sin(t*.6+i*1.7)*.5*dt;Dv[q+1]=Dv[q+1]*dr+Math.cos(t*.5+i*2.3)*.4*dt;Dv[q+2]*=dr;
+Db[q]+=Dv[q]*dt;Db[q+1]+=Dv[q+1]*dt;Db[q+2]+=Dv[q+2]*dt;Dp[q]=Db[q];Dp[q+1]=Db[q+1]+sc*DPa[i];Dp[q+2]=Db[q+2];
+const f=Math.min(1,age*5)*Math.max(0,1-age/55)*(.55+.45*Math.sin(t*2.2+i))*(DPa[i]?1:fin)*.8,Q=PAL[DCi[i]];Dc[q]=Q[0]*f;Dc[q+1]=Q[1]*f;Dc[q+2]=Q[2]*f}
+Dg.attributes.position.needsUpdate=Dg.attributes.color.needsUpdate=true;
+hg.attributes.position.needsUpdate=true;
+const f=ss(.8,1,c)*(1-ss(0,.35,e));fl.material.opacity=f;fl.visible=f>.01;
+const bv=e>.001&&e<.999;bm.visible=bv;if(bv){const ez=1-Math.pow(1-e,3);for(let j=0;j<NB;j++){const d=bd[j];bp[j*3]=d[0]*d[3]*ez*18;bp[j*3+1]=d[1]*d[3]*ez*18;bp[j*3+2]=d[2]*d[3]*ez*18}bg2.attributes.position.needsUpdate=true;bm.material.opacity=1-ss(.3,1,e)}
+gsv=ss(.1,.85,e);g.visible=gsv>.002;g.scale.setScalar(Math.max(gsv,.001));
+const cnt=Math.max(1,Math.round(NN*ss(T[5]+ih*.05,(mob0&&GSY?Math.max(T[5]+ih*.7,GSY-ih*.9):T[6]+ih*.2),ys)));rmv=mi.filter(i=>i<cnt).length;
+pg.geometry.setDrawRange(0,cnt);lg.geometry.setDrawRange(0,(cnt<2?0:1+2*(cnt-2))*2);mp.geometry.setDrawRange(0,1+rmv);sk.geometry.setDrawRange(0,2*rmv);
+orbs.forEach((el,i)=>{const a=t*(1.3+.4*i)+i*2;el.position.set(Math.cos(a)*3.4,Math.sin(a)*3.4,0)});
+hub.scale.setScalar(1+.15*Math.sin(t*3));g.rotation.y=t*.1+dg+mx*.4;g.rotation.x=my*.25;g.position.y=mob0&&GSY?(ih*.4-(GSY-y))*2*.3443*ZC/ih*GS:0;const nf=mob0?.22+.78*GS:1;if(Math.abs(nf-NF)>.003){NF=nf;NMT.forEach(q=>q[0].opacity=q[1]*nf)}
+const HOT=HV>0?HV:HC>0?HC:HS>0?HS:(PIN&&now<PIN.until?PIN.i:-1),okh=HOT>0&&HOT<=rmv&&g.visible;hv+=((okh?1:0)-hv)*Math.min(1,dt*9);hlp.visible=hv>.02;if(okh){hlp.position.copy(MP[HOT]);const A=ACC[(HOT-1)%4];hlp.material.color.setRGB(A[0],A[1],A[2])}hlp.material.opacity=hv*.9;hlp.material.size=(5+Math.sin(now*.008))*hv+1;
+if(HOT!==LH){LH=HOT;document.querySelectorAll('#s6 .nd').forEach((c,i)=>c.classList.toggle('lit',i+1===HOT))}
+ren.render(S,cam);
+const r=cv.getBoundingClientRect();
+const mb=innerWidth<=900,it=[];
+LB.forEach((a,i)=>{V.copy(MP[i]);g.localToWorld(V);const wz=V.z;V.project(cam);const on=g.visible&&gsv>.95&&o&&i<=rmv&&(i===0||wz>-2)&&V.z<1&&(!mb||GS>.6);a._x=r.left+(V.x*.5+.5)*r.width;a._y=r.top+(-V.y*.5+.5)*r.height;if(on)it.push(a);if(a.classList.contains('on')!==on){a.classList.toggle('on',on);a.tabIndex=on?0:-1}});
+it.sort((p,q)=>p._y-q._y);const gh=mb?15:19;for(let i=1;i<it.length;i++)for(let j=0;j<i;j++){const A=it[i],B=it[j],w=(A.textContent.length+B.textContent.length)*(mb?3.4:3.9)+16;if(Math.abs(A._x-B._x)<w&&Math.abs(A._y-B._y)<gh)A._y=B._y+gh}
+LB.forEach((a,i)=>{a.style.left=a._x+'px';a.style.top=a._y+'px';a.classList.toggle('hot',i===HOT)});
+document.documentElement.classList.add('js');const H=document.documentElement.scrollHeight-ih;bar.style.width=(H>0?y/H*100:0)+'%'}
+addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,textarea,select'))return;if(e.altKey||e.ctrlKey||e.metaKey)return;const d=e.key==='j'||e.key==='ArrowRight'?1:e.key==='k'||e.key==='ArrowLeft'?-1:0;if(!d)return;const y=scrollY+innerHeight*.4;let c=0;TP.forEach((t,n)=>{if(t<=y)c=n});const n=Math.max(0,Math.min(TP.length-1,c+d));if(n!==c||d>0){e.preventDefault();scrollTo({top:TP[n],behavior:RM?'auto':'smooth'})}});
+lay();addEventListener('resize',lay);addEventListener('load',lay);setInterval(()=>{TP=tops();lay()},700);loop();
+}catch(err){console.warn('WebGL no disponible',err)}
+</script>
+<script>(function(){var mb=document.getElementById('mb'),mm=document.getElementById('mm');function set(o){mb.classList.toggle('on',o);mm.classList.toggle('on',o);mb.setAttribute('aria-expanded',o?'true':'false')}
+mb.addEventListener('click',function(){set(!mm.classList.contains('on'))});
+mm.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+document.addEventListener('click',function(e){if(!mm.contains(e.target)&&!mb.contains(e.target))set(false)});
+addEventListener('resize',function(){if(innerWidth>900)set(false)})})()</script>
+</body>
+</html>
