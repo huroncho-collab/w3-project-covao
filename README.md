@@ -5,7 +5,7 @@ Proyecto educativo del **COVAO** (Colegio Vocacional de Artes y Oficios, Costa R
 
 🌐 Sitio: https://w3.covao.dev/
 
-## Qué es
+## Qué es?
 Un rediseño interactivo del proyecto WorldWideWeb (W3) y de su documento central, con escenas 3D (Three.js / WebGL), una red de enlaces tocable, buscador interno y cinco idiomas (ES, EN, PT, FR, DE).
 
 ## Contenido original
@@ -14,5 +14,3 @@ Los textos provienen de la página original: <http://info.cern.ch/hypertext/WWW/
 ## Tecnología
 HTML, CSS y JavaScript en un solo archivo. Three.js r128 desde cdnjs. Sin dependencias de compilación.
 
-## Publicar
-Sube `index.html`, `robots.txt`, `sitemap.xml` y `og-image.png` a la raíz del sitio (GitHub Pages, Netlify o Vercel).
